@@ -1,263 +1,522 @@
-import torch
-import tqdm
-from transformers import StoppingCriteria, GenerationConfig
+# Copyright 2021 DeepMind Technologies Limited. All Rights Reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# WikiGraphs is licensed under the terms of the Creative Commons
+# Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license.
+#
+# WikiText-103 data (unchanged) is licensed by Salesforce.com, Inc. under the
+# terms of the Creative Commons Attribution-ShareAlike 4.0 International
+# (CC BY-SA 4.0) license. You can find details about CC BY-SA 4.0 at:
+#
+#     https://creativecommons.org/licenses/by-sa/4.0/legalcode
+#
+# Freebase data is licensed by Google LLC under the terms of the Creative
+# Commons CC BY 4.0 license. You may obtain a copy of the License at:
+#
+#     https://creativecommons.org/licenses/by/4.0/legalcode
+#
+# ==============================================================================
+"""Utility functions for the training script."""
 
-class KeyWordsCriteria(StoppingCriteria):
-    def __init__(self, stop_id_sequences, tokenizer, prompt_length):
-        assert isinstance(stop_id_sequences[0], list), "stop_id_sequences should be a list of list of ids"
-        self.tokenizer = tokenizer
-        self.stop_id_sequences = stop_id_sequences
-        self.stop_sequences = [tokenizer.decode(sequence) for sequence in stop_id_sequences]
-        print(f"stop sequences: {self.stop_sequences}", flush=True)
-        self.prompt_length = prompt_length
+import collections
+import math
+import random
 
-    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor, **kwargs) -> bool:
-        sequences_should_be_stopped = []
-        for i in range(input_ids.shape[0]):
-            ids = input_ids[i][self.prompt_length:].tolist()
-            should_be_stopped = False
-            for stop_ids, stop_sequence in zip(self.stop_id_sequences, self.stop_sequences):
-                _ids = ids
-                for j in range(len(_ids), 0, -1):
-                    s = self.tokenizer.decode(_ids[max(j - len(stop_ids) - 3, 0) :j])
-                    if s.endswith(stop_sequence):
-                        should_be_stopped = True
-                        break
-                if should_be_stopped:
-                    break
-            sequences_should_be_stopped.append(should_be_stopped)
-        return all(sequences_should_be_stopped)
-    
-@torch.no_grad()
-def generate_completions(model, tokenizer, prompts, batch_size=1, stop_id_sequences=None, end_of_generation_id_sequence=None, disable_tqdm=False, **generation_kwargs):
-    generations = []
-    finish_completion = []
-    if not disable_tqdm:
-        progress = tqdm.tqdm(total=len(prompts), desc="Generating Completions")
+from absl import flags
+from absl import logging
 
-    if stop_id_sequences is not None:
-        stop_sequences = [tokenizer.decode(stop_id_sequence) for stop_id_sequence in stop_id_sequences]
+import jax.numpy as jnp
+import jraph
+import numpy as np
+import sklearn
 
-    if end_of_generation_id_sequence is not None:
-        end_of_generation_sequence = tokenizer.decode(end_of_generation_id_sequence)
-
-    num_return_sequences = generation_kwargs.get("num_return_sequences", 1)
-    generation_kwargs['use_cache'] = True
-    for i in range(0, len(prompts), batch_size):
-        batch_prompts = prompts[i:i+batch_size]
-        tokenized_prompts = tokenizer(batch_prompts, padding="longest", return_tensors="pt", add_special_tokens='chatglm2' in str(model.__class__))
-        batch_input_ids = tokenized_prompts.input_ids
-        attention_mask = tokenized_prompts.attention_mask
-
-        if model.device.type == "cuda":
-            batch_input_ids = batch_input_ids.cuda()
-            attention_mask = attention_mask.cuda()
-
-        batch_finish_completion = [False] * len(batch_prompts) * num_return_sequences
-        try:
-            batch_outputs = model.generate(
-                input_ids=batch_input_ids,
-                attention_mask=attention_mask,
-                stopping_criteria=[KeyWordsCriteria(stop_id_sequences, tokenizer, batch_input_ids.size(1))] if stop_id_sequences else None,
-                **generation_kwargs
-            )
-
-            # the stopping criteria is applied at batch level, so if other examples are not stopped, the entire batch will continue to generate.
-            # so some outputs still have the stop sequence, which we need to remove.
-            if stop_id_sequences:
-                for output_idx in range(batch_outputs.shape[0]):
-                    finish = False
-                    for token_idx in range(batch_input_ids.shape[1], batch_outputs.shape[1]):
-                        if any(tokenizer.decode(batch_outputs[output_idx, token_idx: token_idx + len(stop_sequence) + 3]).startswith(stop_sequence) for stop_sequence in stop_sequences):
-                            if end_of_generation_id_sequence is not None and tokenizer.decode(batch_outputs[output_idx, token_idx: token_idx + len(end_of_generation_id_sequence) + 3]).startswith(end_of_generation_sequence):
-                                batch_finish_completion[output_idx] = True
-                            batch_outputs[output_idx, token_idx:] = tokenizer.pad_token_id
-                            break
-
-            # remove the prompt from the output
-            # we need to re-encode the prompt because we need to make sure the special tokens are treated the same way as in the outputs.
-            # we changed our previous way of truncating the output token ids dicrectly because some tokenizer (e.g., llama) won't add space token before the first token.
-            # space is important for some tasks (e.g., code completion).
-            batch_outputs = tokenizer.batch_decode(batch_outputs, skip_special_tokens=True)
-            batch_prompts = tokenizer.batch_decode(batch_input_ids, skip_special_tokens=True)
-            # duplicate the prompts to match the number of return sequences
-            batch_prompts = [prompt for prompt in batch_prompts for _ in range(num_return_sequences)]
-            batch_generations = [
-                output[len(prompt):] for prompt, output in zip(batch_prompts, batch_outputs)
-            ]
-        except Exception as e:
-            print("Error when generating completions for batch:")
-            print(batch_prompts)
-            print("Error message:")
-            print(e)
-            print("Use empty string as the completion.")
-            batch_generations = [""] * len(batch_prompts) * num_return_sequences
-
-        generations += batch_generations
-        finish_completion += batch_finish_completion
-
-        if not disable_tqdm:
-            progress.update(len(batch_prompts)//num_return_sequences)
-
-    assert len(generations) == len(prompts) * num_return_sequences, "number of generations should be equal to number of prompts * num_return_sequences"
-    return generations, finish_completion
+from wikigraphs.data import paired_dataset as pd
+from wikigraphs.data import tokenizers
+from wikigraphs.data import wikitext as wt
+from wikigraphs.model import graph_net as gn
+from wikigraphs.model import sampler as transformer_sampler
+from wikigraphs.model import transformer
 
 
-@torch.no_grad()
-def get_next_word_predictions(model, tokenizer, prompts, candidate_token_ids=None, batch_size=1, return_token_predictions=False, disable_tqdm=False):
-    predictions, probs = [], []
-    if not disable_tqdm:
-        progress = tqdm.tqdm(total=len(prompts), desc="Getting Predictions")
+FLAGS = flags.FLAGS
 
-    for i in range(0, len(prompts), batch_size):
-        batch_prompts = prompts[i: i+batch_size]
-        tokenized_prompts = tokenizer(batch_prompts, padding="longest", return_tensors="pt", add_special_tokens=False)
-        batch_input_ids = tokenized_prompts.input_ids
-        attention_mask = tokenized_prompts.attention_mask
+VOCAB_FILES_MAP = {
+    'wikitext': '/tmp/data/wikitext-vocab.csv',
+    'freebase2wikitext': '/tmp/data/text-vocab.csv',
+}
 
-        if model.device.type == "cuda":
-            batch_input_ids = batch_input_ids.cuda()
-            attention_mask = attention_mask.cuda()
-
-        batch_logits = model(input_ids=batch_input_ids, attention_mask=attention_mask).logits[:, -1, :]
-        if candidate_token_ids is not None:
-            batch_logits = batch_logits[:, candidate_token_ids]
-        batch_probs = torch.softmax(batch_logits, dim=-1)
-        batch_prediction_indices = torch.argmax(batch_probs, dim=-1)
-        if return_token_predictions:
-            if candidate_token_ids is not None:
-                candidate_tokens = tokenizer.convert_ids_to_tokens(candidate_token_ids)
-                batch_predictions = [candidate_tokens[idx] for idx in batch_prediction_indices]
-            else:
-                batch_predictions = tokenizer.convert_ids_to_tokens(batch_prediction_indices)
-            predictions += batch_predictions
-        else:
-            predictions += batch_prediction_indices.tolist()
-        probs += batch_probs.tolist()
-
-        if not disable_tqdm:
-            progress.update(len(batch_prompts))
-
-    assert len(predictions) == len(prompts), "number of predictions should be equal to number of prompts"
-    return predictions, probs
+GRAPH_VOCAB_FILE = '/tmp/data/graph-vocab.csv'
 
 
-@torch.no_grad()
-def score_completions(model, tokenizer, scoring_examples, disable_tqdm=False):
-    '''
-    Each scoring example is a dict, which contains the following keys:
-    - prompt: the prompt to score
-    - completions: a list of completions to score
-    '''
-    
-    if not disable_tqdm:
-        progress = tqdm.tqdm(total=len(scoring_examples), desc="Scoring Completions")
-
-    # unroll the scoring examples
-    unrolled_examples = []
-    for scoring_example in scoring_examples:
-        prompt = scoring_example["prompt"]
-        for completion in scoring_example["completions"]:
-            unrolled_examples.append({
-                "prompt": prompt,
-                "completion": completion
-            })
-
-    scores = []
-    # currently we don't support batching, because we want to directly use the loss returned by the model to score each completion.
-    for unrolled_example in unrolled_examples:
-        encoded_example = encode_with_prompt_completion_format(unrolled_example, tokenizer, max_seq_length=None)
-        # unsqueeze the batch dimension
-        for key, value in encoded_example.items():
-            encoded_example[key] = value.unsqueeze(0)
-        if model.device.type == "cuda":
-            encoded_example = {
-                key: value.cuda() for key, value in encoded_example.items()
-            }
-        outputs = model(**encoded_example)
-        loss = outputs.loss
-        scores.append(-loss.item())
-        if not disable_tqdm:
-            progress.update(1)
-
-    # roll up the scores
-    rolled_up_scores = {}
-    for unrolled_example, score in zip(unrolled_examples, scores):
-        prompt = unrolled_example["prompt"]
-        completion = unrolled_example["completion"]
-        if prompt not in rolled_up_scores:
-            rolled_up_scores[prompt] = {}
-        rolled_up_scores[prompt][completion] = score
-
-    return rolled_up_scores
+def init_tokenizer(dataset_name):
+  """Initialie the tokenizer."""
+  logging.info('Loading tokenizer...')
+  tokenizer = tokenizers.WordTokenizer(VOCAB_FILES_MAP[dataset_name])
+  logging.info('Vocab size: %d', tokenizer.vocab_size)
+  return tokenizer
 
 
+def init_graph_tokenizer():
+  """Initialie the tokenizer."""
+  logging.info('Loading graph tokenizer...')
+  tokenizer = tokenizers.GraphTokenizer(GRAPH_VOCAB_FILE)
+  logging.info('Vocab size: %d', tokenizer.vocab_size)
+  return tokenizer
 
-def load_hf_lm_and_tokenizer(
-        model_name_or_path, 
-        tokenizer_name_or_path=None, 
-        device_map="auto", 
-        load_in_8bit=False, 
-        load_in_half=False,
-        gptq_model=False,
-        use_fast_tokenizer=True,
-        padding_side="left",
-    ):
-    
-    from transformers import AutoModelForCausalLM, AutoModel, AutoTokenizer
 
-    if not tokenizer_name_or_path:
-        tokenizer_name_or_path = model_name_or_path
-
-    is_chatglm2 = 'chatglm2' in tokenizer_name_or_path.lower() or 'chatglm2' in model_name_or_path
-    is_qwen = 'qwen' in tokenizer_name_or_path.lower() or 'qwen' in model_name_or_path
-
-    if is_chatglm2 or is_qwen:
-        tokenizer = AutoTokenizer.from_pretrained(tokenizer_name_or_path, trust_remote_code=True)
-        if is_qwen:
-            tokenizer.eos_token = '<|endoftext|>'
-            tokenizer.eos_token_id = 151643
-            tokenizer.pad_token = tokenizer.eos_token
-            tokenizer.pad_token_id = tokenizer.eos_token_id
+def get_dataset_class(dataset_name, model_type, job_mode='train'):
+  """Get the dataset class used for all jobs."""
+  if dataset_name == 'freebase2wikitext':
+    if model_type == 'bow2text':
+      return pd.Bow2TextDataset
+    elif FLAGS.model_type == 'graph2text':
+      return pd.Graph2TextDataset
+    elif FLAGS.model_type == 'text':
+      if job_mode in ['train', 'eval']:
+        return pd.TextOnlyDataset
+      else:
+        # for sampling: taking the unique graphs for a fair comparison
+        return pd.Bow2TextDataset
     else:
-        tokenizer = AutoTokenizer.from_pretrained(tokenizer_name_or_path, trust_remote_code=True, use_fast=use_fast_tokenizer)
-    # set padding side to left for batch generation
-    tokenizer.padding_side = padding_side
-    # set pad token to eos token if pad token is not set (as is the case for llama models)
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
-        tokenizer.pad_token_id = tokenizer.eos_token_id
+      # Add other graph2text data here.
+      raise NotImplementedError()
+  else:
+    def dataset(graph_tokenizer, *args, **kwargs):
+      del graph_tokenizer
+      return wt.Dataset(*args, **kwargs)
+    return dataset
 
-    if gptq_model:
-        from auto_gptq import AutoGPTQForCausalLM
-        model_wrapper = AutoGPTQForCausalLM.from_quantized(
-            model_name_or_path, device="cuda:0", use_triton=True
-        )
-        model = model_wrapper.model  
-    elif load_in_8bit:
-        model = AutoModelForCausalLM.from_pretrained(
-            model_name_or_path, 
-            device_map=device_map, 
-            load_in_8bit=True
-        )
+
+def preprocess(batch, model_type, num_devices=1):
+  """Preprocess the batch before sending to the model."""
+  if model_type == 'text':
+    if 'graphs' in batch:
+      del batch['graphs']
+  elif model_type == 'bow2text':
+    # Do nothing, bow2text data is already in a good form.
+    pass
+  else:  # graph2text
+    if num_devices == 1:
+      graphs = gn.pad_graphs(jraph.batch(batch['graphs']))
     else:
-        kwargs = {}
-        model_class = AutoModelForCausalLM
-        if is_chatglm2:
-            kwargs = {'trust_remote_code': True}
-            model_class = AutoModel
-        elif is_qwen:
-            kwargs = {'trust_remote_code': True}
-        if device_map:
-            model = model_class.from_pretrained(model_name_or_path, device_map=device_map, **kwargs)
+      # We need to first batch graphs into num_devices batchs.
+      graphs = gn.batch_graphs_by_device(batch['graphs'], num_devices)
+      # Then we pad them to the maximum graph size in the batch and concat.
+      # This way graphs can be distributed to each device through pmap.
+      graphs = gn.pad_graphs_by_device(graphs)
+    max_graph_size = gn.pad_size(graphs.n_node.max())
+    batch.update({
+        'graphs': graphs,
+        'max_graph_size': max_graph_size})
+  return batch
+
+
+def text_model_fn(vocab_size):
+  return transformer.TransformerXL(
+      vocab_size=vocab_size,
+      emb_dim=FLAGS.emb_dim,
+      num_layers=FLAGS.num_layers,
+      num_heads=FLAGS.num_heads,
+      dropout_prob=FLAGS.dropout,
+      dropout_attn_prob=FLAGS.dropout_attn,
+      self_att_init_scale=FLAGS.self_att_init_scale,
+      dense_init_scale=FLAGS.dense_init_scale,
+      dense_dim=FLAGS.dense_dim,
+      tail_shrink_factor=FLAGS.tail_shrink_factor,
+      relative_pos_clamp_len=FLAGS.clamp_len or None)
+
+
+def graph2text_model_fn(vocab_size):
+  """Get graph2text transformer model."""
+  return transformer.Graph2TextTransformer(
+      vocab_size=vocab_size,
+      emb_dim=FLAGS.emb_dim,
+      num_layers=FLAGS.num_layers,
+      num_heads=FLAGS.num_heads,
+      dropout_prob=FLAGS.dropout,
+      dropout_attn_prob=FLAGS.dropout_attn,
+      self_att_init_scale=FLAGS.self_att_init_scale,
+      dense_init_scale=FLAGS.dense_init_scale,
+      dense_dim=FLAGS.dense_dim,
+      tail_shrink_factor=FLAGS.tail_shrink_factor,
+      relative_pos_clamp_len=FLAGS.clamp_len or None,
+      gnn_embed_dim=FLAGS.gnn_embed_dim,
+      gnn_num_layers=FLAGS.gnn_num_layers,
+      gnn_layer_norm=FLAGS.gnn_layer_norm)
+
+
+def bow2text_model_fn(vocab_size):
+  """Get the bow2text model."""
+  return transformer.Bow2TextTransformer(
+      vocab_size=vocab_size,
+      emb_dim=FLAGS.emb_dim,
+      num_layers=FLAGS.num_layers,
+      num_heads=FLAGS.num_heads,
+      dropout_prob=FLAGS.dropout,
+      dropout_attn_prob=FLAGS.dropout_attn,
+      self_att_init_scale=FLAGS.self_att_init_scale,
+      dense_init_scale=FLAGS.dense_init_scale,
+      dense_dim=FLAGS.dense_dim,
+      tail_shrink_factor=FLAGS.tail_shrink_factor,
+      relative_pos_clamp_len=FLAGS.clamp_len or None,
+      bow_embedding_dim=FLAGS.bow_embedding_dim,
+      bow_n_tokens=FLAGS.bow_n_tokens)
+
+
+def build_loss_fn(vocab_size, cache_steps):
+  """Build the appropriate loss function according to the configs."""
+  if FLAGS.model_type == 'text':
+    def loss_fn(data, is_training=True):
+      return text_model_fn(vocab_size=vocab_size).loss(
+          data['obs'], data['target'], data['mask'],
+          is_training=is_training,
+          should_reset=data['should_reset'],
+          cache_steps=cache_steps)
+  elif FLAGS.model_type == 'graph2text':
+    def loss_fn(data, max_graph_size, is_training=True):
+      return graph2text_model_fn(vocab_size=vocab_size).loss(
+          data['graphs'], max_graph_size, True,
+          data['obs'], data['target'], data['mask'],
+          is_training=is_training,
+          should_reset=data['should_reset'],
+          cache_steps=cache_steps)
+  elif FLAGS.model_type == 'bow2text':
+    def loss_fn(data, is_training=True):
+      return bow2text_model_fn(vocab_size=vocab_size).loss(
+          data['graphs'], data['obs'], data['target'], data['mask'],
+          is_training=is_training,
+          should_reset=data['should_reset'],
+          cache_steps=cache_steps)
+  else:
+    raise ValueError(f'Unknown model type "{FLAGS.model_type}".')
+  return loss_fn
+
+
+def build_sampler(tokenizer, device=None):
+  """Build the appropriate sampler according to the configs."""
+  if FLAGS.model_type == 'text':
+    model_fn = lambda prompts: text_model_fn(tokenizer.vocab_size)(  # pylint: disable=g-long-lambda
+        prompts, is_training=False, cache_steps=FLAGS.sample_memory_size)
+    sampler_class = transformer_sampler.TransformerXLSampler
+  elif FLAGS.model_type == 'graph2text':
+    def model_fn(graphs, max_graph_size, prompts):
+      return graph2text_model_fn(tokenizer.vocab_size)(
+          graphs, max_graph_size, True, prompts, is_training=False,
+          cache_steps=FLAGS.sample_memory_size)
+    sampler_class = transformer_sampler.Graph2TextTransformerSampler
+  elif FLAGS.model_type == 'bow2text':
+    def model_fn(graphs, prompts):
+      return bow2text_model_fn(tokenizer.vocab_size)(
+          graphs, prompts, is_training=False,
+          cache_steps=FLAGS.sample_memory_size)
+    sampler_class = transformer_sampler.Bow2TextTransformerSampler
+  sampler = sampler_class(model_fn, FLAGS.sampling_temperature, device)
+  return sampler
+
+
+def schedule(i, lr_schedule, init_lr, min_lr_ratio, max_steps):
+  if lr_schedule == 'cosine':
+    cosine_decay = 0.5 * (1 + jnp.cos(jnp.pi * i / max_steps))
+    decayed = (1 - min_lr_ratio) * cosine_decay + min_lr_ratio
+    return init_lr * decayed
+  else:
+    return jnp.where(
+        i > 350000, init_lr / 3**3,
+        jnp.where(i > 250000, init_lr / 3**2,
+                  jnp.where(i > 150000, init_lr / 3, init_lr)))
+
+
+def evaluate(eval_set, initial_state, updater, eval_batch_size=1,
+             preprocess_fn=None, max_eval_samples=-1,
+             print_progress_every=None):
+  """Evaluate a model on given dataset."""
+  total_losses = []
+  total_counts = []
+  token_accuracy = []
+  seq_accuracy = []
+  state = initial_state
+  step = state['step']
+  for i, batch in enumerate(eval_set):
+    state, eval_out = updater.eval_return_state(state, preprocess_fn(batch))
+    total_losses.append(eval_out['total_loss'])
+    total_counts.append(eval_out['total_count'])
+    token_accuracy.append(
+        eval_out['token_accuracy'] * eval_out['total_count'])
+    seq_accuracy.append(eval_out['seq_accuracy'])
+    if print_progress_every and (i + 1) % print_progress_every == 0:
+      total_loss = float(jnp.array(total_losses).sum())
+      total_count = float(jnp.array(total_counts).sum())
+      avg_loss = total_loss / total_count
+      bpc = avg_loss * np.log2(np.e)
+      perplexity = np.exp(avg_loss)
+      logging.info(
+          'Evaluated %d batches, total tokens %d, average loss %g,'
+          ' bpc %g, perplexity %g.',
+          i + 1, total_count, avg_loss, bpc, perplexity)
+    if 0 < max_eval_samples <= (i + 1) * eval_batch_size:
+      break
+
+  total_loss = jnp.array(total_losses).sum()
+  total_count = jnp.array(total_counts).sum()
+  avg_loss = total_loss / total_count
+  eval_out = dict(total_loss=float(total_loss),
+                  total_count=float(total_count),
+                  loss=float(avg_loss),
+                  token_accuracy=float(
+                      jnp.array(token_accuracy).sum() / total_count),
+                  seq_accuracy=float(
+                      jnp.array(seq_accuracy).sum() / len(seq_accuracy)),
+                  step=float(step),
+                  bits_per_token=float(avg_loss) * np.log2(np.e),
+                  perplexity=np.exp(float(avg_loss)))
+  return eval_out, state
+
+
+def extract_title(text, tokenizer):
+  r"""Extract the title in the text.
+
+  The wikitext articles is in the format of `\n = TITLE = \n \n...`. We extract
+  the title as the tokens from the start to when the `\n \n` first appears.
+
+  Args:
+    text: tokenized input text using `tokenizer`.
+    tokenizer: text tokenizer.
+
+  Returns:
+    title_end_idx: a numpy.array of shape (batch_size,), it indicates the index
+      in `text` that marks the end of the title.
+  """
+  batch_size, text_length = text.shape
+  title_end_idx = np.ones(batch_size, dtype=np.int32)
+  newline_token = tokenizer.encode('\n')[0]
+  for b in range(batch_size):
+    prev_token = 1  # start tokens
+    for i in range(1, text_length):  # skip start token
+      # when we first see '\n \n', that is the title
+      if prev_token == newline_token and text[b, i] == newline_token:
+        title_end_idx[b] = i
+        break
+      else:
+        prev_token = text[b, i]
+  return title_end_idx
+
+
+def construct_prompts(text, batch_size, sample_length, tokenizer, prompt_title):
+  """Construct prompts for text generation.
+
+  Args:
+    text: tokenized input text using `tokenizer`.
+    batch_size: the size of the batch.
+    sample_length: the length of the sample to be generated.
+    tokenizer: text tokenizer.
+    prompt_title: whether to return a prompt with the title of the `text`.
+
+  Returns:
+    prompts: a numpy.array of shape [batch_size, sample_length], in which -1
+      indicates tokens that need to be generated using the sampler.
+
+  """
+  prompts = -np.ones((batch_size, sample_length), dtype=np.int32)
+  prompts[:, 0] = tokenizer.bos_token()
+  if prompt_title and text is not None:
+    title_end_idx = extract_title(text, tokenizer)
+    for i in range(batch_size):
+      prompts[i, 1:title_end_idx[i]+1] = text[i, 1:title_end_idx[i]+1]
+  return prompts
+
+
+def generate_samples(params, tokenizer, sampler, model_type, prompts, graphs):
+  """Generate a batch of samples using a sampler."""
+  if model_type == 'text':
+    samples = sampler.sample(params, prompts)
+  elif model_type == 'graph2text':
+    samples = sampler.sample(params, prompts, graphs, pad=True)
+  elif model_type == 'bow2text':
+    samples = sampler.sample(params, prompts, graphs)
+  else:
+    raise ValueError(f'Unknown model_type {model_type}')
+  return [tokenizer.decode(s) for s in samples], samples
+
+
+def take_unique_graphs(data_iter, model_type):
+  """Filter data such that it only returns batches with unique graphs."""
+  prev_graphs = None
+  for batch in data_iter:
+    graphs = batch.get('graphs', None)
+    # If there's no graph in batch, don't do any filtering
+    if graphs is None:
+      yield batch
+    else:
+      if prev_graphs is None:
+        prev_graphs = graphs
+        yield batch
+      else:
+        if model_type == 'graph2text':
+          not_same_graph = (prev_graphs.nodes.shape != graphs.nodes.shape or
+                            not (prev_graphs.nodes == graphs.nodes).all())
         else:
-            model = model_class.from_pretrained(model_name_or_path, **kwargs)
-            if torch.cuda.is_available():
-                model = model.cuda()
-        if is_qwen:
-            model.generation_config = GenerationConfig.from_pretrained(model_name_or_path, trust_remote_code=True)
-            model.generation_config.do_sample = False
-        if not is_chatglm2 and not is_qwen and load_in_half:
-            model = model.half()
-    model.eval()
-    return model, tokenizer
+          not_same_graph = (prev_graphs.shape != graphs.shape or
+                            not (prev_graphs == graphs).all())
+        if not_same_graph:
+          prev_graphs = graphs
+          yield batch
+
+
+def compute_map_sklearn(pred, gt):
+  """Computes mAP using scikit-learn."""
+  assert len(gt.shape) == len(pred.shape) == 2, (
+      'gt should be a one-hot encoding with the same shape as pred')
+  ap = [
+      sklearn.metrics.average_precision_score(
+          gt[c, :], pred[c, :], average=None)
+      for c in range(gt.shape[0])
+  ]
+  return sum(ap) / len(ap)
+
+
+def compute_recall_at_k(pred, k=1):
+  """Computes recall@1 score."""
+  num_articles = pred.shape[1]
+  return sklearn.metrics.top_k_accuracy_score(
+      np.arange(num_articles), pred, k=k)
+
+
+def compute_text_graph_relevance(
+    eval_set, initial_state, updater, eval_batch_size=1, preprocess_fn=None,
+    print_progress_every=None):
+  """Compute the text and graph relevance a model on given dataset."""
+  assert eval_batch_size == 1
+  num_articles = eval_set.num_articles
+  tokens_count = np.zeros((num_articles, num_articles))
+  log_probs = np.zeros((num_articles, num_articles))  # [graphs, texts]
+  state = initial_state
+  for i, batch in enumerate(eval_set):
+    state, eval_out = updater.eval_return_state(state, preprocess_fn(batch))
+    graph_id = batch['graph_id'][0]
+    seq_id = batch['seq_id'][0]
+    tokens_count[graph_id, seq_id] += eval_out['total_count']
+    log_probs[graph_id, seq_id] += eval_out['log_probs']
+    if print_progress_every is not None and (i + 1) % print_progress_every == 0:
+      logging.info('Evaluated %d samples', i + 1)
+
+  log_probs_per_token = log_probs / tokens_count
+  labels = np.eye(num_articles)
+  eval_out = dict(
+      log_probs=log_probs,
+      tokens_count=tokens_count,
+      log_probs_per_token=log_probs_per_token,
+      text2graph_recall_at_1=compute_recall_at_k(log_probs_per_token.T, k=1),
+      text2graph_recall_at_5=compute_recall_at_k(log_probs_per_token.T, k=5),
+      text2graph_map=compute_map_sklearn(log_probs_per_token.T, labels),
+      graph2text_recall_at_1=compute_recall_at_k(log_probs_per_token, k=1),
+      graph2text_recall_at_5=compute_recall_at_k(log_probs_per_token, k=5),
+      graph2text_map=compute_map_sklearn(log_probs_per_token, labels))
+  return eval_out, state
+
+
+def _get_ngrams(segment, max_order):
+  """Extracts all n-grams upto a given maximum order from an input segment.
+
+  Args:
+    segment: text segment from which n-grams will be extracted.
+    max_order: maximum length in tokens of the n-grams returned by this
+        methods.
+
+  Returns:
+    The Counter containing all n-grams upto max_order in segment
+    with a count of how many times each n-gram occurred.
+  """
+  ngram_counts = collections.Counter()
+  for order in range(1, max_order + 1):
+    for i in range(0, len(segment) - order + 1):
+      ngram = tuple(segment[i:i+order])
+      ngram_counts[ngram] += 1
+  return ngram_counts
+
+
+def compute_bleu(reference_corpus, translation_corpus, max_order=4,
+                 smooth=False):
+  """Computes BLEU score of translated segments against one or more references.
+
+  Originally from tensor2tensor/tensor2tensor/utils/bleu_hook.py
+
+  Args:
+    reference_corpus: list of lists of references for each translation. Each
+        reference should be tokenized into a list of tokens.
+    translation_corpus: list of translations to score. Each translation
+        should be tokenized into a list of tokens.
+    max_order: Maximum n-gram order to use when computing BLEU score.
+    smooth: Whether or not to apply Lin et al. 2004 smoothing.
+
+  Returns:
+    BLEU score and n-gram precisions.
+  """
+  matches_by_order = [0] * max_order
+  possible_matches_by_order = [0] * max_order
+  reference_length = 0
+  translation_length = 0
+  for (references, translation) in zip(reference_corpus,
+                                       translation_corpus):
+    reference_length += min(len(r) for r in references)
+    translation_length += len(translation)
+
+    merged_ref_ngram_counts = collections.Counter()
+    for reference in references:
+      merged_ref_ngram_counts |= _get_ngrams(reference, max_order)
+    translation_ngram_counts = _get_ngrams(translation, max_order)
+    overlap = translation_ngram_counts & merged_ref_ngram_counts
+    for ngram in overlap:
+      matches_by_order[len(ngram)-1] += overlap[ngram]
+    for order in range(1, max_order+1):
+      possible_matches = len(translation) - order + 1
+      if possible_matches > 0:
+        possible_matches_by_order[order-1] += possible_matches
+
+    if random.random() < 0.01:
+      print('==========')
+      for k, v in overlap.items():
+        if len(k) >= 3:
+          print('%s : %d' % (str(k), v))
+
+  # print(matches_by_order)
+  # print(possible_matches_by_order)
+
+  precisions = [0] * max_order
+  for i in range(0, max_order):
+    if smooth:
+      precisions[i] = ((matches_by_order[i] + 1.) /
+                       (possible_matches_by_order[i] + 1.))
+    else:
+      if possible_matches_by_order[i] > 0:
+        precisions[i] = (float(matches_by_order[i]) /
+                         possible_matches_by_order[i])
+      else:
+        precisions[i] = 0.0
+
+  if min(precisions) > 0:
+    p_log_sum = sum((1. / max_order) * math.log(p) for p in precisions)
+    geo_mean = math.exp(p_log_sum)
+  else:
+    geo_mean = 0
+
+  ratio = float(translation_length) / reference_length
+
+  if ratio > 1.0:
+    bp = 1.
+  else:
+    bp = math.exp(1 - 1. / ratio)
+
+  bleu = geo_mean * bp
+
+  return bleu, precisions

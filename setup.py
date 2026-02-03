@@ -27,10 +27,17 @@
 #     https://creativecommons.org/licenses/by/4.0/legalcode
 #
 # ==============================================================================
-"""WikiGraphs data modules."""
-from . import dataset
-from . import io_tools
-from . import paired_dataset
-from . import tokenizers
-from . import tools
-from . import wikitext
+"""Setup for pip package."""
+from setuptools import find_packages
+from setuptools import setup
+
+setup(
+    name='wikigraphs',
+    version='0.1.0',
+    description='A Wikipedia - knowledge graph paired dataset.',
+    url='https://github.com/deepmind/deepmind-research/tree/master/wikigraphs',
+    author='DeepMind',
+    author_email='luyuwang@google.com',
+    packages=find_packages(),
+    license='Apache 2.0',
+)
