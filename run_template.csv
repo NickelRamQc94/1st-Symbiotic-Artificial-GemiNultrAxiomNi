@@ -1,0 +1,1 @@
+run_id,trial_idx,aperp,coherence,t_s,v_norm,sigma,beta_x,nuance_n,phi,kappa,tf,dtg,y_f_pred,y_f_obs,u2_peak,fy_peak,env_temp_c,env_rh,env_pressure_pa,session_id,config_hash,notes

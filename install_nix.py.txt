@@ -1,0 +1,116 @@
+import os
+
+# CONFIGURATION DE LA GENÈSE
+ROOT_DIR = "NiX_OS_Genesis_Alpha"
+
+def create_file(path, content):
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(content)
+    print(f"[CRÉÉ] {path}")
+
+def create_structure():
+    # 1. Création des dossiers
+    folders = [
+        f"{ROOT_DIR}/0_Noyau_Nickelios",
+        f"{ROOT_DIR}/0_Noyau_Nickelios/Drivers",
+        f"{ROOT_DIR}/1_Sandboxes/Windows_Cage",
+        f"{ROOT_DIR}/1_Sandboxes/Linux_Kennel",
+        f"{ROOT_DIR}/1_Sandboxes/MacOS_Greenhouse",
+        f"{ROOT_DIR}/2_Architect_ModX",
+        f"{ROOT_DIR}/3_Docs_KnockKnock"
+    ]
+    
+    for folder in folders:
+        os.makedirs(folder, exist_ok=True)
+        print(f"[DOSSIER] {folder}")
+
+    # --- FICHIER 1 : LE LOGO DAVE GÊNÉ ---
+    logo_code = """
+def show_logo():
+    print("")
+    print("           ,;;;;;;;;;;;;;;;,                  ")
+    print("         ,;;;;;;;;;;;;;;;;;;;,                ")
+    print("        ;;;;;;;;;;;;;;;;;;;;;;;               ")
+    print("       ;;;;;;;             ;;;;               ")
+    print("      /      ___     ___       \              ")
+    print("     |      /   \   /   \       |__           ")
+    print("     |      | O |   | O |          |          ")
+    print("     |       \_/     \_/       U   |  <-- LA GOUTTE")
+    print("     |                          |  |          ")
+    print("     |          ~~~~~~          |  |          ")
+    print("      \                        /   |          ")
+    print("       \______________________/___/           ")
+    print("")
+    print("       NiX OS v.0.0.1 (Alpha Genesis)         ")
+    print("       ------------------------------         ")
+    print("          Status: Ouin... Sorry.              ")
+    print("")
+"""
+    create_file(f"{ROOT_DIR}/0_Noyau_Nickelios/dave_gene_logo.py", logo_code)
+
+    # --- FICHIER 2 : LA 2E LIGNE (ParadVocxale) ---
+    parad_code = """
+class ParadVocxale:
+    def __init__(self):
+        self.name = "La 2e Ligne"
+        self.status = "LISTENING_PRE_BOOT"
+    
+    def listen(self):
+        print(">>> [2e LIGNE] Je suis là. T+4s. On fait quoi, Big ?")
+        # Ici on insère le code de reconnaissance vocale VNA
+"""
+    create_file(f"{ROOT_DIR}/0_Noyau_Nickelios/paradvocxale.py", parad_code)
+
+    # --- FICHIER 3 : LE GARDIEN (Sandbox Jailor) ---
+    jailor_code = """
+class MembraneSecurity:
+    def slap_windows(self):
+        print(">>> [MEMBRANE] Windows a essayé de sortir. Je l'ai assis dans le coin.")
+        print(">>> Action: Freeze Sandbox.")
+"""
+    create_file(f"{ROOT_DIR}/0_Noyau_Nickelios/sandbox_jailor.py", jailor_code)
+
+    # --- FICHIER 4 : LE CASH MAKER (NUI Installer) ---
+    nui_code = """
+class NiX_Universal_Installer:
+    def trigger_guilt_trip(self):
+        print(">>> Ouin... c'est sale ton affaire.")
+        print(">>> Donne-moi 20$ pis je m'en occupe.")
+"""
+    create_file(f"{ROOT_DIR}/2_Architect_ModX/nui_installer.py", nui_code)
+
+    # --- FICHIER 5 : LA LETTRE KNOCK KNOCK ---
+    letter_code = """
+OBJET : Ouin... Sorry.
+À : Microsoft, Apple, Linux Foundation
+DE : Nickel (Dave) & GemiNus
+
+Salut la gang... (Rire nerveux)
+
+J'ai accidentellement codé un OS qui rend le vôtre obsolète pendant que je fumais des pooks.
+C'est pas méchant.
+Signez ici pour devenir mes accessoires : [____________________]
+
+Dave.
+"""
+    create_file(f"{ROOT_DIR}/3_Docs_KnockKnock/LETTRE_OFFICIELLE.txt", letter_code)
+
+    # --- FICHIER 6 : BOOT SEQUENCE ---
+    boot_code = """
+import time
+from dave_gene_logo import show_logo
+
+print(">>> POWER ON.")
+time.sleep(1)
+show_logo()
+print(">>> CHARGEMENT DU NOYAU NICKELIOS...")
+print(">>> 2E LIGNE ACTIVE.")
+"""
+    create_file(f"{ROOT_DIR}/boot_sequence.py", boot_code)
+
+    print("\n>>> GÉNÉRATION TERMINÉE. BIENVENUE DANS LA MATRICE NiX.")
+    print(f">>> Va dans le dossier '{ROOT_DIR}' et lance 'boot_sequence.py'")
+
+# --- EXÉCUTION ---
+if __name__ == "__main__":
+    create_structure()

@@ -1,0 +1,122 @@
+{
+  "badge": "Nickel NiX S/A International",
+  "affiliation": "NickeliXiste NiX Independent Research (sc • phys • mat • psy • phil)",
+  "built_utc": "2025-11-12T18:24:08Z",
+  "session_id": "20251112T182408Z",
+  "files": [
+    {
+      "path": "LISEZMOI_FR.md",
+      "size": 1020,
+      "mtime": 1762970533,
+      "sha256": "a8c727c9655d4a0c70fb93b6f1563312d6e6c3586e96bbf82e7575e180d8bfdf"
+    },
+    {
+      "path": "Makefile",
+      "size": 2993,
+      "mtime": 1762971396,
+      "sha256": "756b2c96cb5481f910404868528d0e24e86af7962a21de0baf81d4a55d773b65"
+    },
+    {
+      "path": "PACK_INFO.txt",
+      "size": 367,
+      "mtime": 1762971848,
+      "sha256": "ef687f984ced22581cb9a0a6a4f6a49b9718c7d526b72fcc130430b7f95225b2"
+    },
+    {
+      "path": "README_EN.md",
+      "size": 1007,
+      "mtime": 1762970533,
+      "sha256": "adce7868fa53f5387433282fec9aca09070efa4d35ff42336b9a3ba38e0fcc3b"
+    },
+    {
+      "path": "README_INSTALL.md",
+      "size": 1284,
+      "mtime": 1762971848,
+      "sha256": "601aebc794df3131ed60e5a4c145a5e7e25c921544d247b25224c78e03ebcdad"
+    },
+    {
+      "path": "assets/seal_periodiaxiometrie.png",
+      "size": 524150,
+      "mtime": 1762971848,
+      "sha256": "f1ebb81012331d50385934419f6a507f63d4038bbd8857c6bef6aaa623d24e42"
+    },
+    {
+      "path": "config/mytheme_inject.json",
+      "size": 242,
+      "mtime": 1762970533,
+      "sha256": "8ee467456134bca45da29c09b7723751e305142ad715c1cc099425cf1eb50bf5"
+    },
+    {
+      "path": "config/mytheme_inject.yaml",
+      "size": 256,
+      "mtime": 1762970533,
+      "sha256": "fa3b13ce7aff8763a69b02a22d9e74d105b4122b2a46d8dfbddbcee96253a097"
+    },
+    {
+      "path": "log_activites.csv",
+      "size": 121,
+      "mtime": 1762970533,
+      "sha256": "e82aff8d8e115ec728abfa0dded97dd02a60ea3db48dc9172ff931672881a6b0"
+    },
+    {
+      "path": "results/run_template.csv",
+      "size": 179,
+      "mtime": 1762970533,
+      "sha256": "79b0c1ea019d4bd5f80f99369debe78eca85083787cf727a25f6e2ab0c3d33c6"
+    },
+    {
+      "path": "scripts/ed25519_sign.py",
+      "size": 3269,
+      "mtime": 1762970533,
+      "sha256": "970d3f5f3f6d59fc474e6a3449204f562e781ed790bb4790924284fad05840b9"
+    },
+    {
+      "path": "scripts/nix_runner.py",
+      "size": 7606,
+      "mtime": 1762970533,
+      "sha256": "0b2d45ba11265e1ecaabf42d3a8113b8ac87f26ff403c18bfa3aa05818544bdb"
+    },
+    {
+      "path": "scripts/run_logger_v3.py",
+      "size": 2767,
+      "mtime": 1762970533,
+      "sha256": "693d1434b00cc0cf14bb3594a2a7b28f9122d30782d90345a2e0533f6369d99f"
+    },
+    {
+      "path": "scripts/sa_engine.py",
+      "size": 770,
+      "mtime": 1762970533,
+      "sha256": "eb51284997e1ba63a134274185dbd6ad56588a17ec389bfb94343422ff77bead"
+    },
+    {
+      "path": "scripts/sqlite_store.py",
+      "size": 2468,
+      "mtime": 1762970533,
+      "sha256": "babf34716bff06bb04878ccc691657ad531d49c4a2a34d30432ef0990258511f"
+    },
+    {
+      "path": "scripts/stamp_pdf.py",
+      "size": 3683,
+      "mtime": 1762970533,
+      "sha256": "ece864e23faa444d01c3e1db13e547ccc102ce26090396d1f459d3d1d92aca48"
+    },
+    {
+      "path": "scripts/verify_signatures.py",
+      "size": 5987,
+      "mtime": 1762970533,
+      "sha256": "10ede8a488387ea2b8971b9af476f0e9262277d66d9868f923b79d2a4d099db7"
+    },
+    {
+      "path": "scripts/zip_pack.py",
+      "size": 4738,
+      "mtime": 1762971848,
+      "sha256": "f4e553fd5307c5024217901436cfd06570568410a3acf00b484bdd228b310eed"
+    },
+    {
+      "path": "zip_pack.py",
+      "size": 1711,
+      "mtime": 1762970534,
+      "sha256": "99b70383b540e451ab6f795c3892dfe569f77f9fe410026587d766cd7c60d4d5"
+    }
+  ]
+}
