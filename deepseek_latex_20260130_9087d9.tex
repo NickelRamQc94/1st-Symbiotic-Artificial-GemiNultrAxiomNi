@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,geometry}
+\geometry{margin=1in}
+\title{Nickel Structural Invariants Framework}
+\author{David ``Nickel'' Grenier}
+\date{\today}
+\begin{document}
+\maketitle
+\section*{Technical Summary}
+Five geometric invariants structure Navier-Stokes regularity:
+\begin{enumerate}
+\item $\theta^*$: generalized directional alignment
+\item ATI: Average Triad Inconsistency
+\item TCF: Triad Consistency Factor  
+\item RITS: Renormalized Integral
+\item $\Phi_F$: Fitting-type structural invariant
+\end{enumerate}
+\section*{Angular Attenuation Lemma}
+For vorticity with directional coherence $\theta^*_\delta$:
+\[
+|\nabla u(x)| \leq C(\delta) \int \frac{|\omega(y)|}{|x-y|^{2+\alpha}} dy
+\]
+where $\alpha(\theta)>0$ for $\theta<\pi/2$.
+\section*{Structural Reduction Theorem}
+Under hypotheses:
+\begin{enumerate}
+\item $\theta^*_{\delta_0}(t) \leq \theta_0 < \pi/2$
+\item $\mathrm{TCF}(t) \geq c_0 > 0$ 
+\item $\mathrm{RITS}_{\log}(T) < \infty$
+\end{enumerate}
+Then:
+\[
+\int_0^T \|\omega(t)\|_{L^\infty} dt < \infty
+\]
+Regularity follows via Beale-Kato-Majda.
+\section*{Numerical Protocols}
+\textbf{ATI measurement:}
+\begin{enumerate}
+\item Compute $\omega$, $S$ from $u$
+\item Identify $|\omega| > \Omega_*$ regions
+\item Compute $|(I-\xi\otimes\xi)S\xi|$
+\item Weighted average with $w_\theta = e^{-|\omega|/\Omega_*}$
+\end{enumerate}
+\textbf{TCF estimation:}
+\begin{enumerate}
+\item Threshold: $I(t) = \{x: |\omega| \geq 0.8\max|\omega|\}$
+\item Extract isosurface $\partial I(t)$
+\item Compute curvature $\kappa$, stretching $\sigma = |S\tau|$
+\item Integrate with $w_{\mathrm{thin}} = e^{-|\kappa|L}$
+\end{enumerate}
+\section*{Feedback Requested}
+\begin{itemize}
+\item Minimality of the five invariants
+\item Independence between ATI, $\theta^*$, $\Phi_F$
+\item Weakest functional spaces for definitions
+\item Physical thresholds for $\Omega_*$, $\delta_0$, $\theta_0$
+\item Redundancy: does $\mathrm{RITS}_{\log}$ imply $\Phi_F$ control?
+\end{itemize}
+\end{document}

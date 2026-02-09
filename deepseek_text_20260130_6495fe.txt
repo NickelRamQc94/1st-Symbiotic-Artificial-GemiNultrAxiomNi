@@ -1,0 +1,7 @@
+LEMME (Atténuation Biot-Savart)
+Soit ω avec cohérence directionnelle θ*_δ
+Alors ∃α(θ) > 0 tel que :
+|∇u(x)| ≤ C(δ) ∫ |ω(y)|/|x-y|²⁺ᵅ dy
+
+Preuve : Décomposition ω = ω∥ + ω⟂
++ Harmoniques sphériques + Contrôle θ*

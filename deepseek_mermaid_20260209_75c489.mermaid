@@ -1,0 +1,23 @@
+flowchart TD
+    A[Input: Voix & Texte] --> B{Module de Capture};
+    B --> C[Analyse Audio<br>Librosa / pyAudioAnalysis];
+    B --> D[Analyse de Texte<br>Réseau de Neurones];
+    C & D --> E{Fusion & Calcul Mathématique<br>Vecteur Emotionnel 6D};
+    E --> F[Base de Connaissance];
+    E --> G[Module d'Apprentissage];
+    
+    F --> H{Contrôleur Principal<br>Self-Learning Loop};
+    G --> H;
+    
+    subgraph G [Module d'Apprentissage]
+        G1[Apprentissage par Renforcement<br>RLVR / Test-Time Compute]
+        G2[Analyse des Résultats Passés]
+        G3[Mise à Jour des Modèles]
+    end
+    
+    H --> I[Adaptation du Comportement];
+    H --> J[Rapport d'Évolution<br>Pour Senior Nickel David Grenier];
+    
+    I --> K[Output: Interaction Adaptative];
+    
+    F <-.-> G;

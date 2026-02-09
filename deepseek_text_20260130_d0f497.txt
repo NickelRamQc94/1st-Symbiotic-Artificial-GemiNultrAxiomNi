@@ -1,0 +1,7 @@
+HYPOTHÈSES :
+A. Cohérence directionnelle : θ*_δ ≤ θ₀
+B. Non-dégénérescence : TCF ≥ c₀  
+C. Contrôle logarithmique : RITS_log < ∞
+
+ALORS :
+∫₀ᵀ ‖ω‖ₗ∞ dt < ∞ → Régularité sur [0,T]

@@ -1,0 +1,7 @@
+CRITÈRE CLASSIQUE → INVARIANT NICKEL
+Constantin-Fefferman → θ*
+Beale-Kato-Majda → RITS  
+Caffarelli-Kohn-Nirenberg → TCF
+Prodi-Serrin → RITS_log
+Escauriaza-Seregin-Šverák → Combinaison
+Tao logarithmique → RITS_log

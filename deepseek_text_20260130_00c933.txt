@@ -1,0 +1,6 @@
+FEEDBACK RECHERCHÉ :
+1. Minimalité : Les 5 invariants sont-ils nécessaires ?
+2. Indépendance : ATI vs θ* vs Φ_F ?
+3. Cadre fonctionnel : Espaces minimaux ?
+4. Seuils numériques : Ω*, δ₀, θ₀ physiques ?
+5. Redondance : RITS_log ⇒ Φ_F ?

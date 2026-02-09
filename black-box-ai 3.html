@@ -1,0 +1,1487 @@
+<!doctype html>
+<html lang="en-US">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="1.2.6",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this.t.bind(this),this.touchStartHandler=this.i.bind(this),this.touchMoveHandler=this.o.bind(this),this.touchEndHandler=this.h.bind(this),this.clickHandler=this.u.bind(this),this.interceptedClicks=[],this.interceptedClickListeners=[],this.l(this),window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.everythingLoaded&&this.m()})),this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))})),document.addEventListener("DOMContentLoaded",(()=>{this.k()})),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}p(t){document.hidden?t.t():(this.triggerEvents.forEach((e=>window.addEventListener(e,t.userEventHandler,{passive:!0}))),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler))}_(){this.triggerEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!0}))),document.removeEventListener("visibilitychange",this.userEventHandler)}i(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this.L(t.target,!0),this.S(t.target,"onclick","rocket-onclick"),this.C())}o(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.M()}h(){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}u(t){t.target.removeEventListener("click",this.clickHandler),this.L(t.target,!1),this.S(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this.M()}O(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach((t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))}))}l(t){EventTarget.prototype.addEventListenerWPRocketBase=EventTarget.prototype.addEventListener,EventTarget.prototype.addEventListener=function(e,i,o){"click"!==e||t.windowLoaded||i===t.clickHandler||t.interceptedClickListeners.push({target:this,func:i,options:o}),(this||window).addEventListenerWPRocketBase(e,i,o)}}L(t,e){this.interceptedClickListeners.forEach((i=>{i.target===t&&(e?t.removeEventListener("click",i.func,i.options):t.addEventListener("click",i.func,i.options))})),t.parentNode!==document.documentElement&&this.L(t.parentNode,e)}D(){return new Promise((t=>{this.P?this.M=t:t()}))}C(){this.P=!0}M(){this.P=!1}S(t,e,i){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(i,event.target.getAttribute(e)),event.target.removeAttribute(e))}t(){this._(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this.R.bind(this)):this.R()}k(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){0===i.indexOf("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.T(t,"preconnect")}async R(){this.lastBreath=Date.now(),this.j(this),this.F(this),this.I(),this.W(),this.q(),await this.A(this.delayedScripts.normal),await this.A(this.delayedScripts.defer),await this.A(this.delayedScripts.async);try{await this.U(),await this.H(this),await this.J()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.D().then((()=>{this.O()})),this.N()}W(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async B(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),i.hasAttribute("src")?(i.addEventListener("load",o),i.addEventListener("error",(function(){i.setAttribute("data-rocket-status","failed-network"),e()})),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: data-uri blocked by CSP -> fallback"),t.removeAttribute("src"),this.B(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())})),s?(t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async A(t){const e=t.shift();return e&&e.isConnected?(await this.B(e),this.A(t)):Promise.resolve()}q(){this.T([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}T(t,e){var i=document.createDocumentFragment();t.forEach((t=>{const o=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(o&&!o.startsWith("data:")){const s=document.createElement("link");s.href=o,s.rel=e,"preconnect"!==e&&(s.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(s.crossOrigin=!0),t.crossOrigin&&(s.crossOrigin=t.crossOrigin),t.integrity&&(s.integrity=t.integrity),i.appendChild(s),this.trash.push(s)}})),document.head.appendChild(i)}j(t){let e={};function i(i,o){return e[o].eventsToRewrite.indexOf(i)>=0&&!t.everythingLoaded?"rocket-"+i:i}function o(t,o){!function(t){e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=i(arguments[0],t),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(o)}function s(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o||function(){},set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}o(document,"DOMContentLoaded"),o(window,"DOMContentLoaded"),o(window,"load"),o(window,"pageshow"),o(document,"readystatechange"),s(document,"onreadystatechange"),s(window,"onload"),s(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}F(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(t){const e=o.fn[t];o.fn[t]=o.fn.init.prototype[t]=function(){return this[0]===window&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),e.apply(this,arguments),this}}o&&o.fn&&!t.allJQueries.includes(o)&&(o.fn.ready=o.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(o):document.addEventListener("rocket-DOMContentLoaded",(()=>e.bind(document)(o))),o([])},s("on"),s("one"),t.allJQueries.push(o)),e=o}o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}async H(t){const e=document.querySelector("script[data-webpack]");e&&(await async function(){return new Promise((t=>{e.addEventListener("load",t),e.addEventListener("error",t)}))}(),await t.K(),await t.H(t))}async U(){this.domReadyFired=!0;try{document.readyState="interactive"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}async J(){try{document.readyState="complete"}catch(t){}await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted}),this.windowLoaded=!0}m(){document.onreadystatechange&&document.onreadystatechange(),window.onload&&window.onload(),window.onpageshow&&window.onpageshow({persisted:this.persisted})}I(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+e);const o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async G(){Date.now()-this.lastBreath>45&&(await this.K(),this.lastBreath=Date.now())}async K(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}N(){this.trash.forEach((t=>t.remove()))}static run(){const t=new RocketLazyLoadScripts;t.p(t)}}RocketLazyLoadScripts.run()})();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+	<!-- This site is optimized with the Yoast SEO plugin v23.9 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Black Box AI Explained: Understanding AI’s Hidden Mechanisms</title><link rel="preload" data-rocket-preload as="style" href="https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" media="print" onload="this.media='all'" /><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap" /></noscript><link rel="preload" data-rocket-preload as="image" href="https://rpatech.b-cdn.net/wp-content/uploads/2024/01/Blog-Bg.png" fetchpriority="high">
+	<meta name="description" content="Learn what Black Box AI is, how it works, its features, challenges, and examples to understand AI’s hidden decision-making processes." />
+	<link rel="canonical" href="https://www.rpatech.ai/blogs/black-box-ai/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Black Box AI Explained: Understanding AI’s Hidden Mechanisms" />
+	<meta property="og:description" content="Learn what Black Box AI is, how it works, its features, challenges, and examples to understand AI’s hidden decision-making processes." />
+	<meta property="og:url" content="https://www.rpatech.ai/blogs/black-box-ai/" />
+	<meta property="og:site_name" content="RPATech" />
+	<meta property="article:published_time" content="2025-08-08T06:43:47+00:00" />
+	<meta property="article:modified_time" content="2026-01-03T05:26:19+00:00" />
+	<meta property="og:image" content="https://rpatech.b-cdn.net/wp-content/uploads/2025/08/Black-Box-AI.png" />
+	<meta property="og:image:width" content="500" />
+	<meta property="og:image:height" content="400" />
+	<meta property="og:image:type" content="image/png" />
+	<meta name="author" content="Vinky G" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Vinky G" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="15 minutes" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.rpatech.ai/blogs/black-box-ai/","url":"https://www.rpatech.ai/blogs/black-box-ai/","name":"Black Box AI Explained: Understanding AI’s Hidden Mechanisms","isPartOf":{"@id":"https://www.rpatech.ai/#website"},"primaryImageOfPage":{"@id":"https://www.rpatech.ai/blogs/black-box-ai/#primaryimage"},"image":{"@id":"https://www.rpatech.ai/blogs/black-box-ai/#primaryimage"},"thumbnailUrl":"https://rpatech.b-cdn.net/wp-content/uploads/2025/08/Black-Box-AI.png","datePublished":"2025-08-08T06:43:47+00:00","dateModified":"2026-01-03T05:26:19+00:00","author":{"@id":"https://www.rpatech.ai/#/schema/person/a9ca2e330015587e73e5de83f63ee4de"},"description":"Learn what Black Box AI is, how it works, its features, challenges, and examples to understand AI’s hidden decision-making processes.","inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.rpatech.ai/blogs/black-box-ai/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.rpatech.ai/blogs/black-box-ai/#primaryimage","url":"https://rpatech.b-cdn.net/wp-content/uploads/2025/08/Black-Box-AI.png","contentUrl":"https://rpatech.b-cdn.net/wp-content/uploads/2025/08/Black-Box-AI.png","width":500,"height":400,"caption":"Black Box AI"},{"@type":"WebSite","@id":"https://www.rpatech.ai/#website","url":"https://www.rpatech.ai/","name":"RPATech","description":"Automating Intelligence Consulting | RPA | AI","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.rpatech.ai/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"},{"@type":"Person","@id":"https://www.rpatech.ai/#/schema/person/a9ca2e330015587e73e5de83f63ee4de","name":"Vinky G","description":"Vinky Gola has been writing technical content for over four years. She enjoys exploring automation tools and has used Power Automate to make her work easier by automating her tasks. Off the clock, she’s a certified bookworm more likely to be found lost in a good novel.","sameAs":["https://www.rpatech.ai","https://www.linkedin.com/in/vinky-gola/"]}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//www.googletagmanager.com' />
+<link rel='dns-prefetch' href='//rpatech.b-cdn.net' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link href='https://rpatech.b-cdn.net' rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="RPATech &raquo; Feed" href="https://www.rpatech.ai/feed/" />
+<link rel="alternate" type="application/rss+xml" title="RPATech &raquo; Comments Feed" href="https://www.rpatech.ai/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="RPATech &raquo; What is Black Box AI? A Comprehensive Guide to Understanding Artificial Intelligence&#8217;s Hidden Mechanisms Comments Feed" href="https://www.rpatech.ai/blogs/black-box-ai/feed/" />
+<style type="text/css">.brave_popup{display:none}</style><script type="rocketlazyloadscript" data-no-optimize="1"> var brave_popup_data = {}; var bravepop_emailValidation=false; var brave_popup_videos = {};  var brave_popup_formData = {};var brave_popup_adminUser = false; var brave_popup_pageInfo = {"type":"single","pageID":27945,"singleType":"post"};  var bravepop_emailSuggestions={};</script><link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.rpatech.ai/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.rpatech.ai%2Fblogs%2Fblack-box-ai%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.rpatech.ai/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.rpatech.ai%2Fblogs%2Fblack-box-ai%2F&#038;format=xml" />
+<link rel="alternate" type="application/rss+xml" title="RPATech &raquo; Stories Feed" href="https://www.rpatech.ai/ai-and-automation-web-stories/feed/"><style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel='stylesheet' id='three-preview-css' href='https://rpatech.b-cdn.net/wp-content/cache/min/1/wp-content/plugins/3r-elementor-timeline-widget/assets/css/style.css?ver=1768807764' media='all' />
+<link rel='stylesheet' id='hello-elementor-css' href='https://rpatech.b-cdn.net/wp-content/themes/hello-elementor/style.min.css?ver=3.0.0' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://rpatech.b-cdn.net/wp-content/themes/hello-elementor/theme.min.css?ver=3.0.0' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://rpatech.b-cdn.net/wp-content/themes/hello-elementor/header-footer.min.css?ver=3.0.0' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://rpatech.b-cdn.net/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.23.4' media='all' />
+<link rel='stylesheet' id='elementor-post-5-css' href='https://rpatech.b-cdn.net/wp-content/uploads/elementor/css/post-5.css?ver=1764934557' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-css' href='https://rpatech.b-cdn.net/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1768807764' media='all' />
+<link data-minify="1" rel='stylesheet' id='swiper-css' href='https://rpatech.b-cdn.net/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=1768807764' media='all' />
+<link rel='stylesheet' id='elementor-pro-css' href='https://rpatech.b-cdn.net/wp-content/plugins/elementor-pro/assets/css/frontend-lite.min.css?ver=3.23.3' media='all' />
+<link rel='stylesheet' id='elementor-global-css' href='https://rpatech.b-cdn.net/wp-content/uploads/elementor/css/global.css?ver=1764934559' media='all' />
+<link rel='stylesheet' id='elementor-post-27945-css' href='https://rpatech.b-cdn.net/wp-content/uploads/elementor/css/post-27945.css?ver=1764936077' media='all' />
+<link rel='stylesheet' id='elementor-post-14-css' href='https://rpatech.b-cdn.net/wp-content/uploads/elementor/css/post-14.css?ver=1766146182' media='all' />
+<link rel='stylesheet' id='elementor-post-136-css' href='https://rpatech.b-cdn.net/wp-content/uploads/elementor/css/post-136.css?ver=1765880140' media='all' />
+<link rel='stylesheet' id='elementor-post-19965-css' href='https://rpatech.b-cdn.net/wp-content/cache/background-css/rpatech.b-cdn.net/wp-content/uploads/elementor/css/post-19965.css?ver=1765181456&wpr_t=1770266793' media='all' />
+<link rel='stylesheet' id='elementor-post-25967-css' href='https://rpatech.b-cdn.net/wp-content/uploads/elementor/css/post-25967.css?ver=1764934559' media='all' />
+<link data-minify="1" rel='stylesheet' id='heateor_sss_frontend_css-css' href='https://rpatech.b-cdn.net/wp-content/cache/background-css/rpatech.b-cdn.net/wp-content/cache/min/1/wp-content/plugins/sassy-social-share/public/css/sassy-social-share-public.css?ver=1768807764&wpr_t=1770266793' media='all' />
+<style id='heateor_sss_frontend_css-inline-css'>
+.heateor_sss_button_instagram span.heateor_sss_svg,a.heateor_sss_instagram span.heateor_sss_svg{background:radial-gradient(circle at 30% 107%,#fdf497 0,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}.heateor_sss_horizontal_sharing .heateor_sss_svg,.heateor_sss_standard_follow_icons_container .heateor_sss_svg{color:#fff;border-width:0px;border-style:solid;border-color:transparent}.heateor_sss_horizontal_sharing .heateorSssTCBackground{color:#666}.heateor_sss_horizontal_sharing span.heateor_sss_svg:hover,.heateor_sss_standard_follow_icons_container span.heateor_sss_svg:hover{border-color:transparent;}.heateor_sss_vertical_sharing span.heateor_sss_svg,.heateor_sss_floating_follow_icons_container span.heateor_sss_svg{color:#fff;border-width:0px;border-style:solid;border-color:transparent;}.heateor_sss_vertical_sharing .heateorSssTCBackground{color:#666;}.heateor_sss_vertical_sharing span.heateor_sss_svg:hover,.heateor_sss_floating_follow_icons_container span.heateor_sss_svg:hover{border-color:transparent;}@media screen and (max-width:783px) {.heateor_sss_vertical_sharing{display:none!important}}
+/*# sourceURL=heateor_sss_frontend_css-inline-css */
+</style>
+<style id='rocket-lazyload-inline-css'>
+.rll-youtube-player{position:relative;padding-bottom:56.23%;height:0;overflow:hidden;max-width:100%;}.rll-youtube-player:focus-within{outline: 2px solid currentColor;outline-offset: 5px;}.rll-youtube-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;z-index:100;background:0 0}.rll-youtube-player img{bottom:0;display:block;left:0;margin:auto;max-width:100%;width:100%;position:absolute;right:0;top:0;border:none;height:auto;-webkit-transition:.4s all;-moz-transition:.4s all;transition:.4s all}.rll-youtube-player img:hover{-webkit-filter:brightness(75%)}.rll-youtube-player .play{height:100%;width:100%;left:0;top:0;position:absolute;background:var(--wpr-bg-de8aab71-8169-4114-b1e9-17992c50a153) no-repeat center;background-color: transparent !important;cursor:pointer;border:none;}
+/*# sourceURL=rocket-lazyload-inline-css */
+</style>
+
+<link rel='stylesheet' id='elementor-icons-shared-0-css' href='https://rpatech.b-cdn.net/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-solid-css' href='https://rpatech.b-cdn.net/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=1768807764' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-regular-css' href='https://rpatech.b-cdn.net/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/regular.min.css?ver=1768807764' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-fa-brands-css' href='https://rpatech.b-cdn.net/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/brands.min.css?ver=1768807764' media='all' />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer defer></script>
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+<!-- Google Ads snippet added by Site Kit -->
+<script type="rocketlazyloadscript" data-rocket-src="https://www.googletagmanager.com/gtag/js?id=AW-719888942" id="google_gtagjs-js" async></script>
+<script type="rocketlazyloadscript" id="google_gtagjs-js-after">
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "AW-719888942");
+ window._googlesitekit = window._googlesitekit || {}; window._googlesitekit.throttledEvents = []; window._googlesitekit.gtagEvent = (name, data) => { var key = JSON.stringify( { name, data } ); if ( !! window._googlesitekit.throttledEvents[ key ] ) { return; } window._googlesitekit.throttledEvents[ key ] = true; setTimeout( () => { delete window._googlesitekit.throttledEvents[ key ]; }, 5 ); gtag( "event", name, { ...data, event_source: "site-kit" } ); }; 
+//# sourceURL=google_gtagjs-js-after
+</script>
+<link rel="https://api.w.org/" href="https://www.rpatech.ai/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.rpatech.ai/wp-json/wp/v2/posts/27945" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.rpatech.ai/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.1" />
+<link rel='shortlink' href='https://www.rpatech.ai/?p=27945' />
+<meta name="generator" content="Site Kit by Google 1.161.0" /><meta name="msvalidate.01" content="0D2E19549E51D362BEE05742E37DC13B" /><style id="wplmi-inline-css" type="text/css">
+ span.wplmi-user-avatar { width: 16px;display: inline-block !important;flex-shrink: 0; } img.wplmi-elementor-avatar { border-radius: 100%;margin-right: 3px; }
+</style>
+		<!-- Google tag (gtag.js) --> <script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-DZ7P8JCYBS"></script> <script type="rocketlazyloadscript">   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'G-DZ7P8JCYBS'); </script>
+		
+		<!-- Microsoft Clarity --> 
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">     (function(c,l,a,r,i,t,y){         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);     })(window, document, "clarity", "script", "arp1dsbbwa"); </script>
+		
+		<!-- Google tag (gtag.js) --> <script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-DZ7P8JCYBS"></script> <script type="rocketlazyloadscript">   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'G-DZ7P8JCYBS'); </script>
+
+			<meta name="google-site-verification" content="vjGcaNUYldaG1DhPKXAgJmD_yvQch9JxQNxJgxx83cg" />	<meta name="facebook-domain-verification" content="5voio95moplskuyychujlhluxix4jd" /><meta name="bcloud_request_time" content="04:46:32 05-02-2026" timezone="Asia/Kolkata"><meta name="bcloud_request_time" content="04:46:32 05-02-2026" timezone="Asia/Kolkata"><meta name="generator" content="Elementor 3.23.4; features: e_optimized_css_loading, additional_custom_breakpoints, e_lazyload; settings: css_print_method-external, google_font-enabled, font_display-swap">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			
+<!-- Google Tag Manager snippet added by Site Kit -->
+<script type="rocketlazyloadscript">
+			( function( w, d, s, l, i ) {
+				w[l] = w[l] || [];
+				w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+				var f = d.getElementsByTagName( s )[0],
+					j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore( j, f );
+			} )( window, document, 'script', 'dataLayer', 'GTM-WTM9GTBH' );
+			
+</script>
+
+<!-- End Google Tag Manager snippet added by Site Kit -->
+<link rel="icon" href="https://rpatech.b-cdn.net/wp-content/uploads/2024/01/cropped-cropped-RPATech-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://rpatech.b-cdn.net/wp-content/uploads/2024/01/cropped-cropped-RPATech-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://rpatech.b-cdn.net/wp-content/uploads/2024/01/cropped-cropped-RPATech-180x180.png" />
+<meta name="msapplication-TileImage" content="https://rpatech.b-cdn.net/wp-content/uploads/2024/01/cropped-cropped-RPATech-270x270.png" />
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><style id="wpforms-css-vars-root">
+				:root {
+					--wpforms-field-border-radius: 3px;
+--wpforms-field-border-style: solid;
+--wpforms-field-border-size: 1px;
+--wpforms-field-background-color: #ffffff;
+--wpforms-field-border-color: rgba( 0, 0, 0, 0.25 );
+--wpforms-field-border-color-spare: rgba( 0, 0, 0, 0.25 );
+--wpforms-field-text-color: rgba( 0, 0, 0, 0.7 );
+--wpforms-field-menu-color: #ffffff;
+--wpforms-label-color: rgba( 0, 0, 0, 0.85 );
+--wpforms-label-sublabel-color: rgba( 0, 0, 0, 0.55 );
+--wpforms-label-error-color: #d63637;
+--wpforms-button-border-radius: 3px;
+--wpforms-button-border-style: none;
+--wpforms-button-border-size: 1px;
+--wpforms-button-background-color: #066aab;
+--wpforms-button-border-color: #066aab;
+--wpforms-button-text-color: #ffffff;
+--wpforms-page-break-color: #066aab;
+--wpforms-background-image: none;
+--wpforms-background-position: center center;
+--wpforms-background-repeat: no-repeat;
+--wpforms-background-size: cover;
+--wpforms-background-width: 100px;
+--wpforms-background-height: 100px;
+--wpforms-background-color: rgba( 0, 0, 0, 0 );
+--wpforms-background-url: none;
+--wpforms-container-padding: 0px;
+--wpforms-container-border-style: none;
+--wpforms-container-border-width: 1px;
+--wpforms-container-border-color: #000000;
+--wpforms-container-border-radius: 3px;
+--wpforms-field-size-input-height: 43px;
+--wpforms-field-size-input-spacing: 15px;
+--wpforms-field-size-font-size: 16px;
+--wpforms-field-size-line-height: 19px;
+--wpforms-field-size-padding-h: 14px;
+--wpforms-field-size-checkbox-size: 16px;
+--wpforms-field-size-sublabel-spacing: 5px;
+--wpforms-field-size-icon-size: 1;
+--wpforms-label-size-font-size: 16px;
+--wpforms-label-size-line-height: 19px;
+--wpforms-label-size-sublabel-font-size: 14px;
+--wpforms-label-size-sublabel-line-height: 17px;
+--wpforms-button-size-font-size: 17px;
+--wpforms-button-size-height: 41px;
+--wpforms-button-size-padding-h: 15px;
+--wpforms-button-size-margin-top: 10px;
+--wpforms-container-shadow-size-box-shadow: none;
+
+				}
+			</style>	
+	<!--GA Embeded Tag-->
+	<!-- Google tag (gtag.js) --> <script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=G-DZ7P8JCYBS"></script> <script type="rocketlazyloadscript">   window.dataLayer = window.dataLayer || [];   function gtag(){dataLayer.push(arguments);}   gtag('js', new Date());   gtag('config', 'G-DZ7P8JCYBS'); </script>
+	<!--GA Embeded Tag-->
+	
+	<!--calrity Embeded Tag-->
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript">     (function(c,l,a,r,i,t,y){         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};         t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);     })(window, document, "clarity", "script", "arp1dsbbwa"); </script>
+	<!--clarity Embeded Tag-->
+<link rel='stylesheet' id='bravepop_front_css-css' href='https://rpatech.b-cdn.net/wp-content/plugins/brave-popup-builder/assets/css/frontend.min.css?ver=6.9.1' media='all' />
+
+<style id="rocket-lazyrender-inline-css">[data-wpr-lazyrender] {content-visibility: auto;}</style><style id="wpr-lazyload-bg-container"></style><style id="wpr-lazyload-bg-exclusion">.elementor-19965 .elementor-element.elementor-element-475b2b0:not(.elementor-motion-effects-element-type-background), .elementor-19965 .elementor-element.elementor-element-475b2b0 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-2e08ca22-d87c-4427-a136-8d024464ecb5: url('https://rpatech.b-cdn.net/wp-content/uploads/2024/01/Blog-Bg.png');}</style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">#heateor_sss_mastodon_popup_bg,#heateor_sss_popup_bg{--wpr-bg-43a0d070-84e9-4e0c-b818-23278f46d185: url('https://rpatech.b-cdn.net/wp-content/plugins/sassy-social-share/images/transparent_bg.png');}.rll-youtube-player .play{--wpr-bg-de8aab71-8169-4114-b1e9-17992c50a153: url('https://rpatech.b-cdn.net/wp-content/plugins/wp-rocket/assets/img/youtube.png');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":"#heateor_sss_mastodon_popup_bg,#heateor_sss_popup_bg","style":"#heateor_sss_mastodon_popup_bg,#heateor_sss_popup_bg{--wpr-bg-43a0d070-84e9-4e0c-b818-23278f46d185: url('https:\/\/rpatech.b-cdn.net\/wp-content\/plugins\/sassy-social-share\/images\/transparent_bg.png');}","hash":"43a0d070-84e9-4e0c-b818-23278f46d185","url":"https:\/\/rpatech.b-cdn.net\/wp-content\/plugins\/sassy-social-share\/images\/transparent_bg.png"},{"selector":".rll-youtube-player .play","style":".rll-youtube-player .play{--wpr-bg-de8aab71-8169-4114-b1e9-17992c50a153: url('https:\/\/rpatech.b-cdn.net\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png');}","hash":"de8aab71-8169-4114-b1e9-17992c50a153","url":"https:\/\/rpatech.b-cdn.net\/wp-content\/plugins\/wp-rocket\/assets\/img\/youtube.png"}]; const rocket_excluded_pairs = [{"selector":".elementor-19965 .elementor-element.elementor-element-475b2b0:not(.elementor-motion-effects-element-type-background), .elementor-19965 .elementor-element.elementor-element-475b2b0 > .elementor-motion-effects-container > .elementor-motion-effects-layer","style":".elementor-19965 .elementor-element.elementor-element-475b2b0:not(.elementor-motion-effects-element-type-background), .elementor-19965 .elementor-element.elementor-element-475b2b0 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-2e08ca22-d87c-4427-a136-8d024464ecb5: url('https:\/\/rpatech.b-cdn.net\/wp-content\/uploads\/2024\/01\/Blog-Bg.png');}","hash":"2e08ca22-d87c-4427-a136-8d024464ecb5","url":"https:\/\/rpatech.b-cdn.net\/wp-content\/uploads\/2024\/01\/Blog-Bg.png"}];</script><meta name="generator" content="WP Rocket 3.17.3.1" data-wpr-features="wpr_lazyload_css_bg_img wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_lazyload_iframes wpr_automatic_lazy_rendering wpr_oci wpr_image_dimensions wpr_minify_css wpr_cdn wpr_mobile" /></head>
+<body data-rsssl=1 class="wp-singular post-template-default single single-post postid-27945 single-format-standard wp-theme-hello-elementor elementor-default elementor-kit-5 elementor-page elementor-page-27945 elementor-page-19965">
+
+		<!-- Google Tag Manager (noscript) snippet added by Site Kit -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTM9GTBH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) snippet added by Site Kit -->
+		
+<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<div  data-elementor-type="header" data-elementor-id="14" class="elementor elementor-14 elementor-location-header" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-930d9a5 elementor-section-full_width elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle" data-id="930d9a5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;motion_fx_motion_fx_scrolling&quot;:&quot;yes&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;motion_fx_devices&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}">
+						<div  class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-b188f60" data-id="b188f60" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a86c877 elementor-widget elementor-widget-image" data-id="a86c877" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.23.0 - 05-08-2024 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>											<a href="https://www.rpatech.ai/">
+							<img width="2238" height="559" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202238%20559'%3E%3C/svg%3E" title="" alt="" data-lazy-src="https://rpatech.b-cdn.net/wp-content/uploads/2025/01/colored.png" /><noscript><img width="2238" height="559" src="https://rpatech.b-cdn.net/wp-content/uploads/2025/01/colored.png" title="" alt="" loading="lazy" /></noscript>								</a>
+													</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-6859bda" data-id="6859bda" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f28e6fa elementor-nav-menu--stretch elementor-nav-menu__align-center elementor-widget__width-auto elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="f28e6fa" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://rpatech.b-cdn.net/wp-content/plugins/elementor-pro/assets/css/widget-nav-menu.min.css?ver=1725524979">			<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
+				<ul id="menu-1-f28e6fa" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24740"><a href="https://www.rpatech.ai/rpa-solutions-services/" class="elementor-item">Services &#038; Solutions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24741"><a href="https://www.rpatech.ai/blogs/" class="elementor-item">Resources</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24742"><a href="https://www.rpatech.ai/careers/" class="elementor-item">Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24743"><a href="https://www.rpatech.ai/about-us/" class="elementor-item">About</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open eicon-menu-bar"></i><i aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close eicon-close"></i>			<span class="elementor-screen-only">Menu</span>
+		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-f28e6fa" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24740"><a href="https://www.rpatech.ai/rpa-solutions-services/" class="elementor-item" tabindex="-1">Services &#038; Solutions</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24741"><a href="https://www.rpatech.ai/blogs/" class="elementor-item" tabindex="-1">Resources</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24742"><a href="https://www.rpatech.ai/careers/" class="elementor-item" tabindex="-1">Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24743"><a href="https://www.rpatech.ai/about-us/" class="elementor-item" tabindex="-1">About</a></li>
+</ul>			</nav>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-73bcc89 elementor-widget__width-auto elementor-widget-tablet__width-auto elementor-hidden-desktop elementor-view-default elementor-widget elementor-widget-icon" data-id="73bcc89" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.rpatech.ai/book-consultation/">
+			<i aria-hidden="true" class="far fa-calendar"></i>			</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-c6bf7fa elementor-align-center elementor-widget__width-auto elementor-tablet-align-justify elementor-mobile-align-center elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-button" data-id="c6bf7fa" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.rpatech.ai/book-consultation/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Book Consultation</span>
+					</span>
+					</a>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-71019eb elementor-align-center elementor-widget__width-auto elementor-tablet-align-justify elementor-mobile-align-center elementor-fixed elementor-widget elementor-widget-button" data-id="71019eb" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;fixed&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-button-wrapper">
+			<a class="elementor-button elementor-button-link elementor-size-sm" href="https://www.rpatech.ai/book-discovery-workshop/">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text"><span class"vertical_text">Book Discovery Workshop</span></span>
+					</span>
+					</a>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+				<div  data-elementor-type="single-post" data-elementor-id="19965" class="elementor elementor-19965 elementor-location-single post-27945 post type-post status-publish format-standard has-post-thumbnail hentry category-blogs tag-artificial-intelligence tag-artificial-intelligence-ai tag-artificial-intelligence-governance tag-black-box-ai tag-explainable-ai tag-explainable-ai-xai" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-475b2b0 elementor-section-height-min-height elementor-section-items-stretch elementor-section-boxed elementor-section-height-default" data-id="475b2b0" data-element_type="section" id="header-meta" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" header-meta="">
+						<div  class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-d449160" data-id="d449160" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-037e7e9 hed elementor-widget elementor-widget-theme-post-title elementor-page-title elementor-widget-heading" data-id="037e7e9" data-element_type="widget" data-widget_type="theme-post-title.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.23.0 - 05-08-2024 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">What is Black Box AI? A Comprehensive Guide to Understanding Artificial Intelligence&#8217;s Hidden Mechanisms</h1>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-533c754 hed elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="533c754" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-4148c57" data-id="4148c57" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2f2d887 elementor-widget elementor-widget-heading" data-id="2f2d887" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h6 class="elementor-heading-title elementor-size-default">Published By:</h6>		</div>
+				</div>
+				<div class="elementor-element elementor-element-41a6445 elementor-align-left elementor-widget elementor-widget-post-info" data-id="41a6445" data-element_type="widget" data-widget_type="post-info.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://rpatech.b-cdn.net/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css"><link rel="stylesheet" href="https://rpatech.b-cdn.net/wp-content/plugins/elementor-pro/assets/css/widget-theme-elements.min.css?ver=1725524979">		<ul class="elementor-icon-list-items elementor-post-info">
+								<li class="elementor-icon-list-item elementor-repeater-item-bec6c97" itemprop="author">
+													<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-author">
+										Vinky G					</span>
+								</li>
+				</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-04d220d" data-id="04d220d" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-b7bc2be elementor-widget elementor-widget-heading" data-id="b7bc2be" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h6 class="elementor-heading-title elementor-size-default">Published On:</h6>		</div>
+				</div>
+				<div class="elementor-element elementor-element-13cb8b6 elementor-align-left elementor-widget elementor-widget-post-info" data-id="13cb8b6" data-element_type="widget" data-widget_type="post-info.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-inline-items elementor-icon-list-items elementor-post-info">
+								<li class="elementor-icon-list-item elementor-repeater-item-e3605b0 elementor-inline-item" itemprop="dateModified">
+													<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-date">
+										<time>August 8, 2025</time>					</span>
+								</li>
+				</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-c4daaed" data-id="c4daaed" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-47bb7f3 elementor-widget elementor-widget-heading" data-id="47bb7f3" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h6 class="elementor-heading-title elementor-size-default">Latest Update:</h6>		</div>
+				</div>
+				<div class="elementor-element elementor-element-1cb30b5 elementor-align-left elementor-widget elementor-widget-post-info" data-id="1cb30b5" data-element_type="widget" data-widget_type="post-info.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items elementor-post-info">
+								<li class="elementor-icon-list-item elementor-repeater-item-bec6c97">
+													<span class="elementor-icon-list-text elementor-post-info__item elementor-post-info__item--type-custom">
+										<time>January 3, 2026</time>					</span>
+								</li>
+				</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-760b2d0" data-id="760b2d0" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-a0ffa0f elementor-widget elementor-widget-theme-post-featured-image elementor-widget-image" data-id="a0ffa0f" data-element_type="widget" data-widget_type="theme-post-featured-image.default">
+				<div class="elementor-widget-container">
+													<img width="500" height="400" src="https://rpatech.b-cdn.net/wp-content/uploads/2025/08/Black-Box-AI.png" class="attachment-full size-full wp-image-27962" alt="Black Box AI" srcset="https://rpatech.b-cdn.net/wp-content/uploads/2025/08/Black-Box-AI.png 500w, https://rpatech.b-cdn.net/wp-content/uploads/2025/08/Black-Box-AI-300x240.png 300w, https://rpatech.b-cdn.net/wp-content/uploads/2025/08/Black-Box-AI-150x120.png 150w" sizes="(max-width: 500px) 100vw, 500px" />													</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-732ec3d elementor-section-stretched elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="732ec3d" data-element_type="section" data-settings="{&quot;stretch_section&quot;:&quot;section-stretched&quot;}">
+						<div  class="elementor-container elementor-column-gap-default">
+					<main class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-104bfb7" data-id="104bfb7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2fe1629 blog-post-content elementor-widget__width-initial elementor-widget elementor-widget-theme-post-content" data-id="2fe1629" data-element_type="widget" data-widget_type="theme-post-content.default">
+				<div class="elementor-widget-container">
+			<div class='heateorSssClear'></div><div  class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' data-heateor-sss-href='https://www.rpatech.ai/blogs/black-box-ai/'><div class='heateor_sss_sharing_title' style="font-weight:bold" ></div><div class="heateor_sss_sharing_ul"><a aria-label="Facebook" class="heateor_sss_facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.rpatech.ai%2Fblogs%2Fblack-box-ai%2F" title="Facebook" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#0765FE;width:33px;height:33px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32"><path fill="#fff" d="M28 16c0-6.627-5.373-12-12-12S4 9.373 4 16c0 5.628 3.875 10.35 9.101 11.647v-7.98h-2.474V16H13.1v-1.58c0-4.085 1.849-5.978 5.859-5.978.76 0 2.072.15 2.608.298v3.325c-.283-.03-.775-.045-1.386-.045-1.967 0-2.728.745-2.728 2.683V16h3.92l-.673 3.667h-3.247v8.245C23.395 27.195 28 22.135 28 16Z"></path></svg></span></a><a aria-label="X" class="heateor_sss_button_x" href="https://twitter.com/intent/tweet?text=What%20is%20Black%20Box%20AI%3F%20A%20Comprehensive%20Guide%20to%20Understanding%20Artificial%20Intelligence%27s%20Hidden%20Mechanisms&url=https%3A%2F%2Fwww.rpatech.ai%2Fblogs%2Fblack-box-ai%2F" title="X" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_x" style="background-color:#2a2a2a;width:33px;height:33px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg width="100%" height="100%" style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#fff" d="M21.751 7h3.067l-6.7 7.658L26 25.078h-6.172l-4.833-6.32-5.531 6.32h-3.07l7.167-8.19L6 7h6.328l4.37 5.777L21.75 7Zm-1.076 16.242h1.7L11.404 8.74H9.58l11.094 14.503Z"></path></svg></span></a><a aria-label="Linkedin" class="heateor_sss_button_linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.rpatech.ai%2Fblogs%2Fblack-box-ai%2F" title="Linkedin" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_linkedin" style="background-color:#0077b5;width:33px;height:33px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32"><path d="M6.227 12.61h4.19v13.48h-4.19V12.61zm2.095-6.7a2.43 2.43 0 0 1 0 4.86c-1.344 0-2.428-1.09-2.428-2.43s1.084-2.43 2.428-2.43m4.72 6.7h4.02v1.84h.058c.56-1.058 1.927-2.176 3.965-2.176 4.238 0 5.02 2.792 5.02 6.42v7.395h-4.183v-6.56c0-1.564-.03-3.574-2.178-3.574-2.18 0-2.514 1.7-2.514 3.46v6.668h-4.187V12.61z" fill="#fff"></path></svg></span></a></div><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div><br/>		<div data-elementor-type="wp-post" data-elementor-id="27945" class="elementor elementor-27945" data-elementor-post-type="post">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-628f96e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="628f96e" data-element_type="section">
+						<div  class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-29e01d9" data-id="29e01d9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-172ba2e elementor-widget elementor-widget-text-editor" data-id="172ba2e" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.23.0 - 05-08-2024 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p><a href="https://www.rpatech.ai/hierarchy-of-ai/" target="_blank" rel="noopener">Artificial intelligence</a> has become deeply embedded in our daily lives, powering everything from smartphone facial recognition to personalized streaming recommendations. Yet many of these systems operate as <strong>black box AI</strong>—sophisticated algorithms whose internal workings remain mysterious even to their creators. Understanding black box AI is crucial for anyone navigating our increasingly AI-driven world, whether you&#8217;re a business leader, developer, or simply a curious observer of technological advancement.</p><h2><strong>What is Black Box AI?</strong></h2><p>Black box AI refers to artificial intelligence systems whose internal workings and decision-making processes are not transparent or easily interpretable by humans. Like a literal black box where you can observe inputs and outputs but cannot see the internal mechanisms, these AI systems process data and generate results without revealing how they arrived at their conclusions.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-e66a84f elementor-widget elementor-widget-image" data-id="e66a84f" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img fetchpriority="high" fetchpriority="high" decoding="async" width="500" height="400" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20500%20400'%3E%3C/svg%3E" class="attachment-large size-large wp-image-27947" alt="What is Black Box AI" data-lazy-src="https://rpatech.b-cdn.net/wp-content/uploads/2025/08/What-is-Black-Box-AI.svg" /><noscript><img fetchpriority="high" fetchpriority="high" decoding="async" width="500" height="400" src="https://rpatech.b-cdn.net/wp-content/uploads/2025/08/What-is-Black-Box-AI.svg" class="attachment-large size-large wp-image-27947" alt="What is Black Box AI" /></noscript>													</div>
+				</div>
+				<div class="elementor-element elementor-element-1c9661d elementor-widget elementor-widget-text-editor" data-id="1c9661d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><strong>The fundamental characteristic of black box AI is opacity</strong>. Users can feed data into the system and receive outputs, but the logic, algorithms, and decision pathways that transform input to output remain hidden or incomprehensible. This lack of transparency doesn&#8217;t necessarily indicate poor design—rather, it often results from the inherent complexity of modern AI architectures.</p><p>Black box AI systems are distinguished from their transparent counterparts, known as <strong>white box</strong> or <a href="https://www.rpatech.ai/explainable-ai/" target="_blank" rel="noopener"><strong>explainable AI</strong></a> systems, which provide clear insights into their decision-making processes. While white box models sacrifice some performance for interpretability, black box models prioritise accuracy and capability, often achieving superior results in complex tasks at the cost of transparency.</p><h2><strong>How Does Black Box AI Work?</strong></h2><p>Understanding the mechanics of black box AI requires examining the sophisticated technologies that power these systems, particularly <strong>deep learning</strong> and <strong>neural networks</strong>.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-20b6882 elementor-widget elementor-widget-image" data-id="20b6882" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+													<img decoding="async" width="800" height="500" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20500'%3E%3C/svg%3E" class="attachment-large size-large wp-image-27948" alt="How Does Black Box AI Works" data-lazy-src="https://rpatech.b-cdn.net/wp-content/uploads/2025/08/How-Black-Box-AI-Works.svg" /><noscript><img decoding="async" width="800" height="500" src="https://rpatech.b-cdn.net/wp-content/uploads/2025/08/How-Black-Box-AI-Works.svg" class="attachment-large size-large wp-image-27948" alt="How Does Black Box AI Works" /></noscript>													</div>
+				</div>
+				<div class="elementor-element elementor-element-8d36088 elementor-widget elementor-widget-text-editor" data-id="8d36088" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<h3><strong>Deep Learning Architecture</strong></h3><p>Most black box AI systems rely on <strong>deep learning</strong>, a subset of machine learning that utilises multilayered neural networks to simulate aspects of human brain function. These networks consist of artificial neurons organised into layers, with each layer performing increasingly complex calculations on the input data.</p><p>The process typically involves three key stages:</p><ul><li><strong>Data Processing</strong>: Raw input data is fed into the network’s input layer, undergoing initial transformation and normalisation.</li><li><strong>Feature Extraction</strong>: The data passes through multiple hidden layers, each containing numerous interconnected nodes or neurons. These layers automatically identify and extract relevant patterns, features, and relationships within the data.</li><li><strong>Output Generation</strong>: The final layers synthesise the processed information to generate predictions, classifications, or decisions based on the learned patterns.</li></ul><h3><strong>Neural Network Training</strong></h3><p>Black box AI systems learn through an iterative training process using vast datasets. During training, the network adjusts millions or billions of parameters—weights and biases that determine how information flows between neurons. This adjustment process, called <strong>backpropagation</strong>, allows the system to minimise errors and improve accuracy over time.</p><p>The complexity arises from the sheer scale of these operations. Modern deep learning models may contain hundreds of layers and billions of parameters, creating mathematical relationships so intricate that even their creators cannot easily trace how specific inputs lead to particular outputs.</p><h3><strong>Self-Learning Mechanisms</strong></h3><p>Unlike traditional rule-based systems, black box AI models develop their own internal logic through exposure to training data. They identify patterns and correlations that humans might miss, creating decision-making frameworks that emerge from the data itself rather than explicit programming.</p><h2><strong>Key Features of Black Box AI</strong></h2><p>Black box AI systems share several distinctive characteristics that set them apart from other AI approaches:</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-6ff67c1 elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="6ff67c1" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<h3><strong>High Complexity and Performance</strong></h3><p>Black box models excel at handling <strong>complex, high-dimensional data</strong> where traditional analytical methods fall short. Their multilayered architectures enable them to model intricate, non-linear relationships that simpler algorithms cannot capture. This complexity translates into superior performance on challenging tasks like image recognition, natural language processing, and pattern detection.</p><h3><strong>Opaque Decision-Making Processes</strong></h3><p>The defining feature of black box AI is its <strong>lack of interpretability</strong>. The decision-making logic is distributed across thousands or millions of parameters, making it practically impossible to create human-readable explanations for specific outputs. This opacity exists even for the developers who created the systems.</p><h3><strong>Automatic Feature Learning</strong></h3><p>Unlike traditional machine learning approaches that require manual feature engineering, black box AI systems <strong>automatically discover relevant features and patterns</strong> in data. They can identify subtle correlations and hierarchical relationships that human analysts might overlook, leading to insights that wouldn&#8217;t emerge through conventional analysis.</p><h3><strong>Scalability and Adaptability</strong></h3><p>Black box models demonstrate exceptional <strong>scalability</strong>, efficiently processing vast amounts of data while maintaining or improving performance. They also exhibit adaptability, continuously refining their decision-making as they encounter new data, making them particularly valuable for dynamic environments.</p><h3><strong>Robustness to Noise</strong></h3><p>The distributed nature of decision-making in black box systems often makes them <strong>more robust to noisy or incomplete data</strong> compared to simpler models. Their ability to identify patterns across multiple features helps them maintain accuracy even when individual data points are corrupted or missing.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-7a831c3 elementor-widget elementor-widget-shortcode" data-id="7a831c3" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode"><!-- Black Box AI Features Shortcode Content -->
+<!-- Copy everything below this line and paste into WordPress -->
+
+<div class="blackbox-ai-features" style="max-width: 1000px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <!-- Inline CSS for better compatibility -->
+    <style>
+    .blackbox-ai-features * { box-sizing: border-box; }
+    .blackbox-ai-header {
+        background: #005786;
+        color: white;
+        padding: 40px 30px;
+        text-align: center;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .blackbox-ai-header h2 {
+        margin: 0 0 10px 0;
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1.2;
+    }
+    .blackbox-ai-header p {
+        margin: 0;
+        font-size: 1rem;
+        opacity: 0.9;
+    }
+    .blackbox-ai-feature {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .blackbox-ai-feature:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .blackbox-ai-feature.feature-1 { background: #E6EEF3; }
+    .blackbox-ai-feature.feature-2 { background: #D1320D; color: white !important; }
+    .blackbox-ai-feature.feature-3 { background: #FAEBE7; }
+    .blackbox-ai-feature.feature-4 { background: #003D5E; color: white !important; }
+    .blackbox-ai-feature.feature-5 { background: #EDAD9E; }
+    
+    .blackbox-ai-icon {
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+        margin-right: 25px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .feature-1 .blackbox-ai-icon { background: #4D89AA; color: white; }
+    .feature-2 .blackbox-ai-icon { background: #691907; color: white; }
+    .feature-3 .blackbox-ai-icon { background: #DF7056; color: white; }
+    .feature-4 .blackbox-ai-icon { background: #99BCCF; color: #003D5E; }
+    .feature-5 .blackbox-ai-icon { background: #922309; color: white; }
+    
+    .blackbox-ai-content h3 {
+        margin: 0 0 15px 0;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.3;
+    }
+    .blackbox-ai-content p {
+        margin: 0;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+    
+    .blackbox-ai-footer {
+        background: #005786;
+        color: white;
+        padding: 20px 30px;
+        text-align: center;
+        border-radius: 25px;
+        margin-top: 30px;
+        font-weight: bold;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .blackbox-ai-feature {
+            flex-direction: column;
+            text-align: center;
+        }
+        .blackbox-ai-icon {
+            margin: 0 auto 20px auto;
+        }
+        .blackbox-ai-header h2 { font-size: 1.5rem; }
+        .blackbox-ai-content h3 { font-size: 1.3rem; }
+        .blackbox-ai-header, .blackbox-ai-feature, .blackbox-ai-footer {
+            padding: 20px;
+        }
+    }
+    </style>
+    
+    <!-- Header -->
+    <div class="blackbox-ai-header">
+        <h2 style="color: white !important;">Key Features of Black Box AI</h2>
+        <p style="color: white !important;">Five distinctive characteristics that define black box AI systems</p>
+    </div>
+    
+    <!-- Feature 1: High Complexity -->
+    <div class="blackbox-ai-feature feature-1">
+        <div class="blackbox-ai-icon">🔗</div>
+        <div class="blackbox-ai-content">
+            <h3>High Complexity and Performance</h3>
+            <p>Black box models excel at handling complex, high-dimensional data where traditional analytical methods fall short. Their multilayered architectures enable them to model intricate, non-linear relationships that simpler algorithms cannot capture.</p>
+        </div>
+    </div>
+    
+    <!-- Feature 2: Opaque Decision-Making -->
+    <div class="blackbox-ai-feature feature-2">
+        <div class="blackbox-ai-icon">❓</div>
+        <div class="blackbox-ai-content">
+            <h3 style="color: white !important;">Opaque Decision-Making Processes</h3>
+            <p style="color: white !important;">The defining feature of black box AI is its lack of interpretability. The decision-making logic is distributed across thousands or millions of parameters, making it practically impossible to create human-readable explanations for specific outputs.</p>
+        </div>
+    </div>
+    
+    <!-- Feature 3: Automatic Feature Learning -->
+    <div class="blackbox-ai-feature feature-3">
+        <div class="blackbox-ai-icon">🎯</div>
+        <div class="blackbox-ai-content">
+            <h3>Automatic Feature Learning</h3>
+            <p>Unlike traditional machine learning approaches that require manual feature engineering, black box AI systems automatically discover relevant features and patterns in data. They identify subtle correlations that human analysts might overlook.</p>
+        </div>
+    </div>
+    
+    <!-- Feature 4: Scalability -->
+    <div class="blackbox-ai-feature feature-4">
+        <div class="blackbox-ai-icon">📈</div>
+        <div class="blackbox-ai-content">
+            <h3 style="color: white !important;">Scalability and Adaptability</h3>
+            <p style="color: white !important;">Black box models demonstrate exceptional scalability, efficiently processing vast amounts of data while maintaining or improving performance. They also exhibit adaptability, continuously refining their decision-making with new data.</p>
+        </div>
+    </div>
+    
+    <!-- Feature 5: Robustness -->
+    <div class="blackbox-ai-feature feature-5">
+        <div class="blackbox-ai-icon">🛡️</div>
+        <div class="blackbox-ai-content">
+            <h3>Robustness to Noise</h3>
+            <p>The distributed nature of decision-making in black box systems often makes them more robust to noisy or incomplete data compared to simpler models. Their ability to identify patterns across multiple features helps maintain accuracy.</p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="blackbox-ai-footer">
+        These features make black box AI powerful yet challenging to interpret and control
+    </div>
+</div></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-00cbd0e elementor-widget elementor-widget-spacer" data-id="00cbd0e" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.23.0 - 05-08-2024 */
+.elementor-column .elementor-spacer-inner{height:var(--spacer-size)}.e-con{--container-widget-width:100%}.e-con-inner>.elementor-widget-spacer,.e-con>.elementor-widget-spacer{width:var(--container-widget-width,var(--spacer-size));--align-self:var(--container-widget-align-self,initial);--flex-shrink:0}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container,.e-con>.elementor-widget-spacer>.elementor-widget-container{height:100%;width:100%}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer,.e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer{height:100%}.e-con-inner>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner,.e-con>.elementor-widget-spacer>.elementor-widget-container>.elementor-spacer>.elementor-spacer-inner{height:var(--container-widget-height,var(--spacer-size))}.e-con-inner>.elementor-widget-spacer.elementor-widget-empty,.e-con>.elementor-widget-spacer.elementor-widget-empty{position:relative;min-height:22px;min-width:22px}.e-con-inner>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon,.e-con>.elementor-widget-spacer.elementor-widget-empty .elementor-widget-empty-icon{position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;padding:0;width:22px;height:22px}</style>		<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-b5c3e33 elementor-widget elementor-widget-text-editor" data-id="b5c3e33" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<h2><strong>Challenges of Explaining Black Box AI Systems</strong></h2><p>The opacity of black box AI creates significant challenges across multiple domains, from technical debugging to regulatory compliance.</p><h3><strong>Trust and Accountability Issues</strong></h3><p>The inability to understand how black box systems reach decisions creates fundamental <strong>trust barriers</strong>. When AI systems make critical decisions affecting healthcare, finance, or legal outcomes, stakeholders struggle to validate the reasoning behind those decisions. This lack of transparency makes it difficult to establish accountability when systems make errors or exhibit unexpected behaviour.</p><p>Healthcare providers, for example, may hesitate to adopt AI diagnostic tools if they cannot understand why the system flagged certain symptoms or recommended specific treatments. Similarly, financial institutions face challenges explaining loan denials or fraud alerts to customers and regulators when the underlying AI logic remains opaque.</p><h3><strong>Regulatory Compliance Challenges</strong></h3><p>Increasing regulatory requirements demand <strong>explainability in AI decision-making</strong>, particularly in sectors like finance, healthcare, and employment. The European Union&#8217;s General Data Protection Regulation (GDPR) includes &#8220;right to explanation&#8221; provisions that require organisations to explain automated decision-making processes. Similarly, emerging <a href="https://www.rpatech.ai/ai-governance/" target="_blank" rel="noopener">AI governance</a> frameworks worldwide emphasise transparency and explainability.</p><p>Black box AI systems often struggle to meet these regulatory requirements, forcing organizations to choose between high-performing but opaque models and less accurate but explainable alternatives. This regulatory pressure has spurred development of explainable AI (XAI) techniques designed to provide insights into black box decisions.</p><h3><strong>Bias Detection and Mitigation</strong></h3><p>The opacity of black box systems makes it <strong>extremely difficult to identify and address algorithmic bias</strong>. When systems exhibit discriminatory behaviour, investigators cannot easily trace the source of bias or implement targeted corrections. This challenge is particularly concerning in applications affecting employment, criminal justice, and financial services, where biased AI decisions can perpetuate or amplify societal inequalities.</p><p>For instance, facial recognition systems have demonstrated racial bias in law enforcement applications, but the black box nature of these systems makes it difficult to understand and correct the underlying causes. Without visibility into the decision-making process, organizations struggle to ensure fair and equitable AI outcomes.</p><h3><strong>Technical Debugging and Optimisation</strong></h3><p>From a technical perspective, black box AI systems present significant <strong>debugging and optimization challenges</strong>. When models produce unexpected or incorrect results, developers cannot easily identify the root cause or implement targeted fixes. This limitation slows down model improvement and makes it difficult to adapt systems for new use cases or changing requirements.</p><p>The debugging challenge extends to model maintenance and updates. As black box systems encounter new data patterns or edge cases, their behaviour may drift in unpredictable ways, making it difficult to maintain consistent performance over time.</p><h3><strong>Security Vulnerabilities</strong></h3><p>The opacity of black box systems can <strong>hide security vulnerabilities</strong> from both developers and security auditors. Adversarial attacks—carefully crafted inputs designed to fool AI systems—can exploit these hidden vulnerabilities in ways that are difficult to anticipate or defend against. Without understanding how systems process information, security teams struggle to implement comprehensive protection measures.</p><h2><strong>Examples of Black Box AI in Real-World Applications</strong></h2><p>Black box AI powers numerous applications across various industries, often providing superior performance despite their lack of transparency.</p><h3><strong>Large Language Models</strong></h3><p><strong><a href="https://medium.com/p/a1ab9bd4c1e9" target="_blank" rel="noopener">ChatGPT</a> and similar large language models</strong> represent prominent examples of black box AI. These systems process natural language inputs and generate human-like responses, but their decision-making processes remain largely opaque. Users can observe the quality of outputs but cannot understand how the model selects specific words, constructs arguments, or demonstrates apparent reasoning capabilities.</p><p>The transformer architecture underlying these models involves billions of parameters working together in ways that are practically impossible to trace or interpret. Even OpenAI, the creator of ChatGPT, acknowledges that the internal workings of their models are not fully understood.</p><h3><strong>Facial Recognition Systems</strong></h3><p><strong>Deep learning-based facial recognition systems</strong> exemplify black box AI in computer vision applications. These systems use convolutional neural networks (CNNs) trained on massive datasets of facial images to identify individuals with high accuracy. However, the specific features and decision pathways the system uses to distinguish between faces remain hidden within the network&#8217;s complex architecture.</p><p>Modern facial recognition systems can outperform humans in certain conditions, but their decision-making process involves millions of mathematical operations across hundreds of layers, making it impossible to provide simple explanations for why the system identified or failed to identify a particular individual.</p><h3><strong>Financial Trading Algorithms</strong></h3><p><strong>Algorithmic trading systems</strong> in financial markets often employ black box AI to analyse market patterns, news sentiment, and trading data to make investment decisions. These systems can process vast amounts of information in real-time and identify profitable trading opportunities that human traders might miss.</p><p>However, the complexity of these algorithms makes it difficult for traders and regulators to understand the logic behind specific trading decisions. This opacity raises concerns about market stability and systemic risk when multiple black box trading systems interact in unexpected ways.</p><h3><strong>Medical Diagnostic Systems</strong></h3><p><strong>AI-powered diagnostic tools</strong> in healthcare demonstrate both the potential and challenges of black box AI. Deep learning systems can analyse medical images, such as X-rays, MRIs, and CT scans, to detect diseases with accuracy that sometimes exceeds human specialists.</p><p>For example, AI systems can identify subtle patterns in retinal photographs that indicate diabetic complications or analyse chest X-rays to detect early-stage lung cancer. However, the inability to explain why the system flagged certain areas or reached specific diagnostic conclusions creates challenges for clinical adoption and patient trust.</p><h3><strong>Autonomous Vehicles</strong></h3><p><strong>Self-driving car systems</strong> rely heavily on black box AI to process sensor data, recognize objects, predict pedestrian behaviour, and make real-time driving decisions. These systems integrate multiple AI components for perception, path planning, and control, creating complex decision-making frameworks that are difficult to interpret.</p><p>When autonomous vehicles make errors or cause accidents, investigators often struggle to understand the specific factors that led to the incorrect decision, complicating efforts to improve safety and assign responsibility.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-fd5f0be elementor-widget elementor-widget-text-editor" data-id="fd5f0be" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<h2><strong>Explaining Black Box AI: Breaking Down the Complexity</strong></h2><p>To better understand black box AI, it&#8217;s helpful to examine why these systems become opaque and how they differ from more interpretable alternatives.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-663658f elementor-widget elementor-widget-text-editor" data-id="663658f" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<h3><strong>The Complexity-Interpretability Trade-off</strong></h3><p>The fundamental challenge with black box AI stems from the <strong>trade-off between model complexity and interpretability</strong>. Simple AI models, such as linear regression or decision trees, provide clear, human-readable rules for their decisions. However, these simple models often cannot capture the intricate patterns necessary for high performance on complex tasks.</p><p>Black box models achieve superior performance by embracing complexity, using deep neural networks with multiple layers and millions of parameters to model subtle, non-linear relationships in data. This complexity enables breakthrough capabilities but sacrifices the interpretability that simpler models provide.</p><h3><strong>Emergence and Non-linearity</strong></h3><p>Black box AI systems exhibit <strong>emergent behaviour</strong>—capabilities that arise from the interaction of many simple components but cannot be easily traced to specific elements. Similar to how consciousness emerges from neural activity in the human brain without being locatable in any single neuron, AI capabilities emerge from the collective behaviour of artificial neural networks.</p><p>The <strong>non-linear nature</strong> of these systems further complicates interpretation. Small changes in input can lead to large changes in output through cascading effects across multiple layers, making it difficult to establish clear cause-and-effect relationships between inputs and decisions.</p><h3><strong>Distributed Decision-Making</strong></h3><p>Unlike rule-based systems where decisions follow clear logical pathways, black box AI employs <strong>distributed decision-making</strong> across thousands of processing units. No single component makes the final decision; instead, the output emerges from the collective processing of all network components. This distributed approach provides robustness and capability but eliminates the possibility of simple explanations.</p><h3><strong>The Role of Training Data</strong></h3><p>The behaviour of black box AI systems is fundamentally shaped by their <strong>training data</strong> rather than explicit programming. These systems learn patterns, biases, and decision-making strategies directly from examples, creating internal representations that may not align with human conceptual frameworks.</p><p>This data-driven learning process means that even the creators of black box AI systems cannot fully predict or explain their behaviour without extensive testing and analysis. The models develop their own internal logic based on statistical patterns in training data, which may not correspond to human-interpretable rules or concepts.</p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-3c2f396 elementor-widget elementor-widget-shortcode" data-id="3c2f396" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode"><div class="blackbox-explanation" style="max-width: 1000px; margin: 0 auto; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    
+    <!-- Inline CSS for better compatibility -->
+    <style>
+    .blackbox-explanation * { box-sizing: border-box; }
+    
+    .bb-header {
+        background: #005786;
+        color: white !important;
+        padding: 30px;
+        text-align: center;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .bb-header h2 {
+        margin: 0 0 10px 0 !important;
+        font-size: 1.8rem !important;
+        font-weight: bold !important;
+        line-height: 1.2 !important;
+        color: white !important;
+    }
+    .bb-header p {
+        margin: 0 !important;
+        font-size: 0.9rem !important;
+        opacity: 0.9;
+        color: white !important;
+    }
+    
+    .bb-section {
+        margin-bottom: 30px;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .bb-section.section-1 { background: #E6EEF3; }
+    .bb-section.section-2 { background: #D1320D; color: white !important; }
+    .bb-section.section-3 { background: #FAEBE7; }
+    .bb-section.section-4 { background: #4D89AA; color: white !important; }
+    
+    .bb-section-title {
+        text-align: center;
+        font-size: 1.4rem !important;
+        font-weight: bold !important;
+        margin: 0 0 30px 0 !important;
+        line-height: 1.3 !important;
+    }
+    .section-1 .bb-section-title { color: #005786 !important; }
+    .section-2 .bb-section-title { color: white !important; }
+    .section-3 .bb-section-title { color: #000000 !important; }
+    .section-4 .bb-section-title { color: white !important; }
+    
+    .bb-comparison {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        gap: 20px;
+    }
+    
+    .bb-box {
+        flex: 1;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .bb-box h4 {
+        margin: 0 0 15px 0 !important;
+        font-size: 1.1rem !important;
+        font-weight: bold !important;
+        color: white !important;
+    }
+    .bb-box p {
+        margin: 5px 0 !important;
+        font-size: 0.9rem !important;
+        color: white !important;
+    }
+    .bb-box .icon {
+        font-size: 2rem;
+        margin: 10px 0;
+    }
+    
+    .section-1 .bb-box:first-child { background: #99BCCF; }
+    .section-1 .bb-box:last-child { background: #003D5E; }
+    .section-3 .bb-box:first-child { background: #DF7056; }
+    .section-3 .bb-box:last-child { background: #922309; }
+    
+    .bb-arrow {
+        font-size: 2rem;
+        color: #005786;
+        font-weight: bold;
+        flex: 0 0 50px;
+        text-align: center;
+    }
+    
+    .bb-description {
+        text-align: center;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        margin-top: 20px !important;
+    }
+    .section-1 .bb-description { color: #000000 !important; }
+    .section-2 .bb-description { color: white !important; }
+    .section-3 .bb-description { color: #000000 !important; }
+    .section-4 .bb-description { color: white !important; }
+    
+    .bb-concept-row {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+        gap: 30px;
+    }
+    
+    .bb-concept {
+        flex: 1;
+        text-align: center;
+    }
+    .bb-concept h5 {
+        margin: 0 0 15px 0 !important;
+        font-size: 1rem !important;
+        font-weight: bold !important;
+        color: white !important;
+    }
+    .bb-concept p {
+        margin: 5px 0 !important;
+        font-size: 0.85rem !important;
+        color: rgba(250, 235, 231, 0.9) !important;
+    }
+    .bb-concept .visual {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+    
+    .bb-flow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    .bb-flow-item {
+        padding: 12px 18px;
+        border-radius: 8px;
+        font-size: 0.9rem !important;
+        font-weight: bold !important;
+        text-align: center;
+    }
+    .section-4 .bb-flow-item:nth-child(1) { background: #E6EEF3; color: #000000 !important; }
+    .section-4 .bb-flow-item:nth-child(3) { background: #002C43; color: white !important; }
+    .section-4 .bb-flow-item:nth-child(5) { background: #99BCCF; color: #000000 !important; }
+    
+    .bb-insight {
+        background: #99BCCF;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .bb-insight h5 {
+        margin: 0 0 10px 0 !important;
+        font-size: 1rem !important;
+        font-weight: bold !important;
+        color: #000000 !important;
+    }
+    .bb-insight p {
+        margin: 5px 0 !important;
+        font-size: 0.9rem !important;
+        color: #000000 !important;
+    }
+    
+    .bb-summary {
+        background: #005786;
+        color: white !important;
+        padding: 25px;
+        text-align: center;
+        border-radius: 15px;
+        margin-top: 30px;
+    }
+    .bb-summary h3 {
+        margin: 0 0 15px 0 !important;
+        font-size: 1.2rem !important;
+        font-weight: bold !important;
+        color: white !important;
+    }
+    .bb-summary ul {
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .bb-summary li {
+        margin: 8px 0 !important;
+        font-size: 0.9rem !important;
+        color: white !important;
+    }
+    .bb-summary li:before {
+        content: "• ";
+        color: white;
+        font-weight: bold;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .bb-comparison, .bb-concept-row, .bb-flow {
+            flex-direction: column;
+            gap: 15px;
+        }
+        .bb-arrow {
+            transform: rotate(90deg);
+            margin: 10px 0;
+        }
+        .bb-header h2 { font-size: 1.4rem !important; }
+        .bb-section-title { font-size: 1.2rem !important; }
+        .bb-header, .bb-section, .bb-summary {
+            padding: 20px;
+        }
+    }
+    </style>
+    
+    <!-- Header -->
+    <div class="bb-header">
+        <h2>Explaining Black Box AI: Breaking Down the Complexity</h2>
+        <p>Understanding why AI systems become opaque and how they differ from interpretable alternatives</p>
+    </div>
+    
+    <!-- Section 1: Complexity-Interpretability Trade-off -->
+    <div class="bb-section section-1">
+        <h3 class="bb-section-title">The Complexity-Interpretability Trade-off</h3>
+        
+        <div class="bb-comparison">
+            <div class="bb-box">
+                <div class="icon">🌳</div>
+                <h4>Simple Models</h4>
+                <p>High Interpretability</p>
+                <p>Limited Performance</p>
+                <p style="font-size: 0.8rem; margin-top: 10px;">Clear Rules</p>
+            </div>
+            
+            <div class="bb-arrow">⟶</div>
+            
+            <div class="bb-box">
+                <div class="icon">🧠</div>
+                <h4>Complex Models</h4>
+                <p>Low Interpretability</p>
+                <p>High Performance</p>
+                <p style="font-size: 0.8rem; margin-top: 10px;">Black Box</p>
+            </div>
+        </div>
+        
+        <div class="bb-description">
+            <p>Black box models achieve superior performance by embracing complexity, using deep neural networks with millions of parameters but sacrificing the interpretability that simpler models provide.</p>
+        </div>
+    </div>
+    
+    <!-- Section 2: Emergence and Non-linearity -->
+    <div class="bb-section section-2">
+        <h3 class="bb-section-title">Emergence and Non-linearity</h3>
+        
+        <div class="bb-concept-row">
+            <div class="bb-concept">
+                <h5>Emergent Behavior</h5>
+                <div class="visual">🔗 ➜ 🧩</div>
+                <p>Simple Components</p>
+                <p>⬇</p>
+                <p>Complex Behavior</p>
+            </div>
+            
+            <div class="bb-concept">
+                <h5>Non-linear Effects</h5>
+                <div class="visual">📈 ➜ 💥</div>
+                <p>Small Input</p>
+                <p>⬇</p>
+                <p>Large Change</p>
+                <p>Cascading Effects</p>
+            </div>
+        </div>
+        
+        <div class="bb-description">
+            <p>AI capabilities emerge from collective behavior of neural networks, similar to consciousness arising from brain activity. Small input changes can lead to large output changes through cascading effects.</p>
+        </div>
+    </div>
+    
+    <!-- Section 3: Distributed Decision-Making -->
+    <div class="bb-section section-3">
+        <h3 class="bb-section-title">Distributed Decision-Making</h3>
+        
+        <div class="bb-comparison">
+            <div class="bb-box">
+                <h4>Rule-Based System</h4>
+                <div class="visual">📋 ➜ ✅</div>
+                <p>Clear logical pathway</p>
+                <p style="font-size: 0.8rem; margin-top: 10px;">Rule 1 → Rule 2 → Decision</p>
+            </div>
+            
+            <div class="bb-box">
+                <h4>Distributed System</h4>
+                <div class="visual">🕸️ ➜ 🎯</div>
+                <p>Collective processing</p>
+                <p style="font-size: 0.8rem; margin-top: 10px;">Network collaboration</p>
+            </div>
+        </div>
+        
+        <div class="bb-description">
+            <p>No single component makes the final decision. Output emerges from collective processing of all network components, providing robustness but eliminating possibility of simple explanations.</p>
+        </div>
+    </div>
+    
+    <!-- Section 4: Role of Training Data -->
+    <div class="bb-section section-4">
+        <h3 class="bb-section-title">The Role of Training Data</h3>
+        
+        <div class="bb-flow">
+            <div class="bb-flow-item">Training Data<br><small>Patterns, Biases</small></div>
+            <div class="bb-arrow" style="color: white;">➜</div>
+            <div class="bb-flow-item">AI<br>System</div>
+            <div class="bb-arrow" style="color: white;">➜</div>
+            <div class="bb-flow-item">Internal Logic<br><small>Statistical Patterns</small></div>
+        </div>
+        
+        <div class="bb-insight">
+            <h5>Key Insight</h5>
+            <p>Even creators cannot fully predict behavior without extensive testing.</p>
+            <p>Models develop their own internal logic from training data patterns.</p>
+        </div>
+    </div>
+    
+    <!-- Summary -->
+    <div class="bb-summary">
+        <h3>Why Black Box AI is Complex</h3>
+        <ul>
+            <li>Trade-off between complexity and interpretability</li>
+            <li>Emergent behaviors and non-linear relationships</li>
+            <li>Distributed decision-making</li>
+            <li>Data-driven learning</li>
+        </ul>
+    </div>
+</div></div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-51b8f5f elementor-widget elementor-widget-spacer" data-id="51b8f5f" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-42e667b elementor-widget elementor-widget-text-editor" data-id="42e667b" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<h2><strong>The Future of Black Box AI</strong></h2><p>As artificial intelligence continues to evolve, the relationship between performance and interpretability remains a central challenge for the field.</p><h3><strong>Explainable AI Development</strong></h3><p>Researchers are actively developing <strong>explainable AI (XAI) techniques</strong> designed to provide insights into black box decision-making without sacrificing performance. Methods like LIME (Local Interpretable Model-agnostic Explanations) and SHAP (SHapley Additive exPlanations) offer post-hoc explanations for individual predictions.</p><p>However, these explanatory techniques typically provide approximations rather than true transparency into the underlying decision-making process. They offer valuable insights but don&#8217;t fully resolve the interpretability challenges inherent in complex AI systems.</p><h3><strong>Regulatory Evolution</strong></h3><p><strong>Regulatory frameworks</strong> worldwide are evolving to address the challenges posed by black box AI. The European Union&#8217;s AI Act, proposed U.S. federal AI regulations, and industry-specific guidelines increasingly require organizations to demonstrate transparency and accountability in AI decision-making.</p><p>These regulatory pressures are driving innovation in explainable AI and forcing organizations to balance performance with transparency requirements. Companies must increasingly consider interpretability as a design requirement rather than an optional feature.</p><h3><strong>Hybrid Approaches</strong></h3><p>The future may see more <strong>hybrid approaches</strong> that combine the performance benefits of black box AI with the interpretability requirements of critical applications. These might include ensemble methods that use multiple models, including both black box and interpretable components, or architectural innovations that build interpretability into high-performance models.</p><h3><strong>Industry-Specific Solutions</strong></h3><p>Different industries are developing <strong>domain-specific solutions</strong> to the black box challenge. Healthcare organizations are creating AI systems with built-in explanation capabilities for clinical decision support. Financial institutions are developing audit trails for AI-driven decisions to meet regulatory requirements. </p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-533cdb9 elementor-widget elementor-widget-text-editor" data-id="533cdb9" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<h2><strong>Conclusion</strong></h2><p>Black box AI represents both the pinnacle of current artificial intelligence capabilities and one of its greatest challenges. These systems demonstrate unprecedented performance on complex tasks, powering innovations from language models to autonomous vehicles. However, their opacity creates significant challenges for trust, accountability, regulation, and debugging.</p><p>Understanding black box AI is essential for navigating our AI-driven future. As these systems become more prevalent in critical applications, the tension between performance and interpretability will continue to shape AI development. While perfect transparency may not be achievable for the most sophisticated AI systems, ongoing advances in explainable AI and regulatory frameworks are working to strike an appropriate balance.</p><p>The future of AI likely lies not in choosing between black box and interpretable systems, but in developing approaches that maximize both capability and understanding. As we continue to integrate AI into society&#8217;s most important decisions, the challenge of opening the black box—or at least creating windows into it—remains one of the field&#8217;s most critical priorities.</p><p>For organizations and individuals working with AI, the key is understanding when black box systems are appropriate and ensuring adequate safeguards, testing, and oversight are in place to manage the risks that opacity creates. By acknowledging both the power and limitations of black box AI, we can harness its benefits while working toward more transparent and accountable artificial intelligence systems.</p>						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		<br/><div class='heateorSssClear'></div><div  class='heateor_sss_sharing_container heateor_sss_horizontal_sharing' data-heateor-sss-href='https://www.rpatech.ai/blogs/black-box-ai/'><div class='heateor_sss_sharing_title' style="font-weight:bold" ></div><div class="heateor_sss_sharing_ul"><a aria-label="Facebook" class="heateor_sss_facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.rpatech.ai%2Fblogs%2Fblack-box-ai%2F" title="Facebook" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg" style="background-color:#0765FE;width:33px;height:33px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32"><path fill="#fff" d="M28 16c0-6.627-5.373-12-12-12S4 9.373 4 16c0 5.628 3.875 10.35 9.101 11.647v-7.98h-2.474V16H13.1v-1.58c0-4.085 1.849-5.978 5.859-5.978.76 0 2.072.15 2.608.298v3.325c-.283-.03-.775-.045-1.386-.045-1.967 0-2.728.745-2.728 2.683V16h3.92l-.673 3.667h-3.247v8.245C23.395 27.195 28 22.135 28 16Z"></path></svg></span></a><a aria-label="X" class="heateor_sss_button_x" href="https://twitter.com/intent/tweet?text=What%20is%20Black%20Box%20AI%3F%20A%20Comprehensive%20Guide%20to%20Understanding%20Artificial%20Intelligence%27s%20Hidden%20Mechanisms&url=https%3A%2F%2Fwww.rpatech.ai%2Fblogs%2Fblack-box-ai%2F" title="X" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_x" style="background-color:#2a2a2a;width:33px;height:33px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg width="100%" height="100%" style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="#fff" d="M21.751 7h3.067l-6.7 7.658L26 25.078h-6.172l-4.833-6.32-5.531 6.32h-3.07l7.167-8.19L6 7h6.328l4.37 5.777L21.75 7Zm-1.076 16.242h1.7L11.404 8.74H9.58l11.094 14.503Z"></path></svg></span></a><a aria-label="Linkedin" class="heateor_sss_button_linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.rpatech.ai%2Fblogs%2Fblack-box-ai%2F" title="Linkedin" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle"><span class="heateor_sss_svg heateor_sss_s__default heateor_sss_s_linkedin" style="background-color:#0077b5;width:33px;height:33px;border-radius:999px;display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;box-sizing:content-box"><svg style="display:block;border-radius:999px;" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 32 32"><path d="M6.227 12.61h4.19v13.48h-4.19V12.61zm2.095-6.7a2.43 2.43 0 0 1 0 4.86c-1.344 0-2.428-1.09-2.428-2.43s1.084-2.43 2.428-2.43m4.72 6.7h4.02v1.84h.058c.56-1.058 1.927-2.176 3.965-2.176 4.238 0 5.02 2.792 5.02 6.42v7.395h-4.183v-6.56c0-1.564-.03-3.574-2.178-3.574-2.18 0-2.514 1.7-2.514 3.46v6.668h-4.187V12.61z" fill="#fff"></path></svg></span></a></div><div class="heateorSssClear"></div></div><div class='heateorSssClear'></div>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2447483 elementor-post-navigation-borders-yes elementor-widget elementor-widget-post-navigation" data-id="2447483" data-element_type="widget" data-widget_type="post-navigation.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-post-navigation">
+			<div class="elementor-post-navigation__prev elementor-post-navigation__link">
+				<a href="https://www.rpatech.ai/blogs/intelligent-automation-in-manufacturing/" rel="prev"><span class="post-navigation__arrow-wrapper post-navigation__arrow-prev"><i class="fa fa-angle-left" aria-hidden="true"></i><span class="elementor-screen-only">Prev</span></span><span class="elementor-post-navigation__link__prev"><span class="post-navigation__prev--label">Previous</span><span class="post-navigation__prev--title">Intelligent Automation in Manufacturing: 3 Key Use Cases</span></span></a>			</div>
+							<div class="elementor-post-navigation__separator-wrapper">
+					<div class="elementor-post-navigation__separator"></div>
+				</div>
+						<div class="elementor-post-navigation__next elementor-post-navigation__link">
+				<a href="https://www.rpatech.ai/blogs/extended-workbench-rpa-implementation/" rel="next"><span class="elementor-post-navigation__link__next"><span class="post-navigation__next--label">Next</span><span class="post-navigation__next--title">How Extended Workbench Services Accelerate RPA Implementation</span></span><span class="post-navigation__arrow-wrapper post-navigation__arrow-next"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="elementor-screen-only">Next</span></span></a>			</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</main>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-ebea2da elementor-hidden-mobile" data-id="ebea2da" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-3fa98ee elementor-widget elementor-widget-table-of-contents" data-id="3fa98ee" data-element_type="widget" data-settings="{&quot;exclude_headings_by_selector&quot;:&quot;.related-posts, .header-meta&quot;,&quot;collapse_subitems&quot;:&quot;yes&quot;,&quot;sticky_parent&quot;:&quot;yes&quot;,&quot;sticky&quot;:&quot;top&quot;,&quot;headings_by_tags&quot;:[&quot;h2&quot;,&quot;h3&quot;,&quot;h4&quot;,&quot;h5&quot;],&quot;marker_view&quot;:&quot;numbers&quot;,&quot;hierarchical_view&quot;:&quot;yes&quot;,&quot;min_height&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;min_height_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;min_height_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0}" data-widget_type="table-of-contents.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor-pro - v3.23.0 - 05-08-2024 */
+.elementor-widget-table-of-contents .elementor-toc__header-title{color:var(--header-color)}.elementor-widget-table-of-contents.elementor-toc--collapsed .elementor-toc__toggle-button--collapse,.elementor-widget-table-of-contents:not(.elementor-toc--collapsed) .elementor-toc__toggle-button--expand{display:none}.elementor-widget-table-of-contents .elementor-widget-container{min-height:var(--box-min-height);border:var(--box-border-width,1px) solid var(--box-border-color,#9da5ae);border-radius:var(--box-border-radius,3px);background-color:var(--box-background-color);transition:min-height .4s;overflow:hidden}.elementor-toc__header{display:flex;align-items:center;justify-content:space-between;padding:var(--box-padding,20px);background-color:var(--header-background-color);border-bottom:var(--separator-width,1px) solid var(--box-border-color,#9da5ae)}.elementor-toc__header-title{font-size:18px;margin:0;color:var(--header-color);flex-grow:1}.elementor-toc__toggle-button{cursor:pointer;display:inline-flex}.elementor-toc__toggle-button i{color:var(--toggle-button-color)}.elementor-toc__toggle-button svg{height:1em;width:1em;fill:var(--toggle-button-color)}.elementor-toc__spinner-container{text-align:center}.elementor-toc__spinner{font-size:2em}.elementor-toc__spinner.e-font-icon-svg{height:1em;width:1em}.elementor-toc__body{padding:var(--box-padding,20px);max-height:var(--toc-body-max-height);overflow-y:auto}.elementor-toc__body::-webkit-scrollbar{width:7px}.elementor-toc__body::-webkit-scrollbar-thumb{background-color:#babfc5;border-radius:10px}.elementor-toc__list-wrapper{list-style:none;padding:0}.elementor-toc__list-item{margin-bottom:.5em}.elementor-toc__list-item.elementor-item-active{font-weight:700}.elementor-toc__list-item .elementor-toc__list-wrapper{margin-top:.5em;margin-inline-start:var(--nested-list-indent,1em)}.elementor-toc__list-item-text{transition-duration:var(--item-text-transition-duration)}.elementor-toc__list-item-text:hover{color:var(--item-text-hover-color);-webkit-text-decoration:var(--item-text-hover-decoration);text-decoration:var(--item-text-hover-decoration)}.elementor-toc__list-item-text.elementor-item-active{color:var(--item-text-active-color);-webkit-text-decoration:var(--item-text-active-decoration);text-decoration:var(--item-text-active-decoration)}.elementor-toc__list-item-text-wrapper{display:flex;align-items:center}.elementor-toc__list-item-text-wrapper:before,.elementor-toc__list-item-text-wrapper i{margin-inline-end:8px;color:var(--marker-color)}.elementor-toc__list-item-text-wrapper svg{margin-inline-end:8px;fill:var(--marker-color);height:var(--marker-size,.5em);width:var(--marker-size,.5em)}.elementor-toc__list-item-text-wrapper i{font-size:var(--marker-size,.5em)}.elementor-toc__list-item-text-wrapper:before{font-size:var(--marker-size,1em)}.elementor-toc--content-ellipsis .elementor-toc__list-item-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.elementor-toc__list-items--collapsible>.elementor-toc__list-wrapper>.elementor-toc__list-item>.elementor-toc__list-wrapper{display:none}.elementor-toc__heading-anchor{position:absolute}.elementor-toc__body .elementor-toc__list-item-text{color:var(--item-text-color);-webkit-text-decoration:var(--item-text-decoration);text-decoration:var(--item-text-decoration);transition-duration:var(--item-text-transition-duration)}.elementor-toc__body .elementor-toc__list-item-text:hover{color:var(--item-text-hover-color);-webkit-text-decoration:var(--item-text-hover-decoration);text-decoration:var(--item-text-hover-decoration)}.elementor-toc__body .elementor-toc__list-item-text.elementor-item-active{color:var(--item-text-active-color);-webkit-text-decoration:var(--item-text-active-decoration);text-decoration:var(--item-text-active-decoration)}ol.elementor-toc__list-wrapper{counter-reset:item}ol.elementor-toc__list-wrapper .elementor-toc__list-item{counter-increment:item}ol.elementor-toc__list-wrapper .elementor-toc__list-item-text-wrapper:before{content:counters(item,".") ". "}</style>		<div class="elementor-toc__header">
+			<h3 class="elementor-toc__header-title">
+				Table of Contents			</h3>
+					</div>
+		<div id="elementor-toc__3fa98ee" class="elementor-toc__body elementor-toc__list-items--collapsible">
+			<div class="elementor-toc__spinner-container">
+				<i class="elementor-toc__spinner eicon-animation-spin eicon-loading" aria-hidden="true"></i>			</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section data-wpr-lazyrender="1" class="elementor-section elementor-top-section elementor-element elementor-element-dc6500e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="dc6500e" data-element_type="section" id="related-posts" related-posts="">
+						<div  class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a11030c" data-id="a11030c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f7ad1d0 related-posts elementor-widget elementor-widget-heading" data-id="f7ad1d0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Related</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-57102e1 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="57102e1" data-element_type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.23.0 - 05-08-2024 */
+.elementor-widget-divider{--divider-border-style:none;--divider-border-width:1px;--divider-color:#0c0d0e;--divider-icon-size:20px;--divider-element-spacing:10px;--divider-pattern-height:24px;--divider-pattern-size:20px;--divider-pattern-url:none;--divider-pattern-repeat:repeat-x}.elementor-widget-divider .elementor-divider{display:flex}.elementor-widget-divider .elementor-divider__text{font-size:15px;line-height:1;max-width:95%}.elementor-widget-divider .elementor-divider__element{margin:0 var(--divider-element-spacing);flex-shrink:0}.elementor-widget-divider .elementor-icon{font-size:var(--divider-icon-size)}.elementor-widget-divider .elementor-divider-separator{display:flex;margin:0;direction:ltr}.elementor-widget-divider--view-line_icon .elementor-divider-separator,.elementor-widget-divider--view-line_text .elementor-divider-separator{align-items:center}.elementor-widget-divider--view-line_icon .elementor-divider-separator:after,.elementor-widget-divider--view-line_icon .elementor-divider-separator:before,.elementor-widget-divider--view-line_text .elementor-divider-separator:after,.elementor-widget-divider--view-line_text .elementor-divider-separator:before{display:block;content:"";border-block-end:0;flex-grow:1;border-block-start:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--element-align-left .elementor-divider .elementor-divider-separator>.elementor-divider__svg:first-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-left .elementor-divider-separator:before{content:none}.elementor-widget-divider--element-align-left .elementor-divider__element{margin-left:0}.elementor-widget-divider--element-align-right .elementor-divider .elementor-divider-separator>.elementor-divider__svg:last-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-right .elementor-divider-separator:after{content:none}.elementor-widget-divider--element-align-right .elementor-divider__element{margin-right:0}.elementor-widget-divider--element-align-start .elementor-divider .elementor-divider-separator>.elementor-divider__svg:first-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-start .elementor-divider-separator:before{content:none}.elementor-widget-divider--element-align-start .elementor-divider__element{margin-inline-start:0}.elementor-widget-divider--element-align-end .elementor-divider .elementor-divider-separator>.elementor-divider__svg:last-of-type{flex-grow:0;flex-shrink:100}.elementor-widget-divider--element-align-end .elementor-divider-separator:after{content:none}.elementor-widget-divider--element-align-end .elementor-divider__element{margin-inline-end:0}.elementor-widget-divider:not(.elementor-widget-divider--view-line_text):not(.elementor-widget-divider--view-line_icon) .elementor-divider-separator{border-block-start:var(--divider-border-width) var(--divider-border-style) var(--divider-color)}.elementor-widget-divider--separator-type-pattern{--divider-border-style:none}.elementor-widget-divider--separator-type-pattern.elementor-widget-divider--view-line .elementor-divider-separator,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:after,.elementor-widget-divider--separator-type-pattern:not(.elementor-widget-divider--view-line) .elementor-divider-separator:before,.elementor-widget-divider--separator-type-pattern:not([class*=elementor-widget-divider--view]) .elementor-divider-separator{width:100%;min-height:var(--divider-pattern-height);-webkit-mask-size:var(--divider-pattern-size) 100%;mask-size:var(--divider-pattern-size) 100%;-webkit-mask-repeat:var(--divider-pattern-repeat);mask-repeat:var(--divider-pattern-repeat);background-color:var(--divider-color);-webkit-mask-image:var(--divider-pattern-url);mask-image:var(--divider-pattern-url)}.elementor-widget-divider--no-spacing{--divider-pattern-size:auto}.elementor-widget-divider--bg-round{--divider-pattern-repeat:round}.rtl .elementor-widget-divider .elementor-divider__text{direction:rtl}.e-con-inner>.elementor-widget-divider,.e-con>.elementor-widget-divider{width:var(--container-widget-width,100%);--flex-grow:var(--container-widget-flex-grow)}</style>		<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-27f9d79 related-posts elementor-grid-3 elementor-grid-tablet-2 elementor-grid-mobile-1 elementor-posts--thumbnail-top elementor-widget elementor-widget-posts" data-id="27f9d79" data-element_type="widget" data-settings="{&quot;classic_row_gap&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:39,&quot;sizes&quot;:[]},&quot;classic_columns&quot;:&quot;3&quot;,&quot;classic_columns_tablet&quot;:&quot;2&quot;,&quot;classic_columns_mobile&quot;:&quot;1&quot;,&quot;classic_row_gap_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;classic_row_gap_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="posts.classic">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://rpatech.b-cdn.net/wp-content/plugins/elementor-pro/assets/css/widget-posts.min.css?ver=1725524979">		<div class="elementor-posts-container elementor-posts elementor-posts--skin-classic elementor-grid">
+				<article class="elementor-post elementor-grid-item post-28942 post type-post status-publish format-standard has-post-thumbnail hentry category-news tag-agentic-automation tag-fast-track-partner tag-uipath-agentic-automation tag-uipath-partner">
+				<a class="elementor-post__thumbnail__link" href="https://www.rpatech.ai/news/rpatech-uipath-agentic-automation-fast-track-partner/" tabindex="-1" >
+			<div class="elementor-post__thumbnail"><img width="300" height="240" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20240'%3E%3C/svg%3E" class="attachment-medium size-medium wp-image-28947" alt="UiPath Agentic Automation Fast Track Partner" data-lazy-src="https://rpatech.b-cdn.net/wp-content/uploads/2026/01/UiPath-Agentic-Automation-Fast-Track-Partner-300x240.png" /><noscript><img loading="lazy" width="300" height="240" src="https://rpatech.b-cdn.net/wp-content/uploads/2026/01/UiPath-Agentic-Automation-Fast-Track-Partner-300x240.png" class="attachment-medium size-medium wp-image-28947" alt="UiPath Agentic Automation Fast Track Partner" /></noscript></div>
+		</a>
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://www.rpatech.ai/news/rpatech-uipath-agentic-automation-fast-track-partner/" >
+				RPATech recognized as a UiPath Agentic Automation Fast Track Partner			</a>
+		</h3>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-28714 post type-post status-publish format-standard has-post-thumbnail hentry category-blogs tag-automation-solution tag-nbfc-automation tag-nbfc-automation-solutions tag-robotic-process-automation">
+				<a class="elementor-post__thumbnail__link" href="https://www.rpatech.ai/blogs/nbfc-automation-solutions/" tabindex="-1" >
+			<div class="elementor-post__thumbnail"><img width="300" height="240" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20240'%3E%3C/svg%3E" class="attachment-medium size-medium wp-image-28727" alt="NBFC Automation" data-lazy-src="https://rpatech.b-cdn.net/wp-content/uploads/2025/12/NBFC-Automation-300x240.png" /><noscript><img loading="lazy" width="300" height="240" src="https://rpatech.b-cdn.net/wp-content/uploads/2025/12/NBFC-Automation-300x240.png" class="attachment-medium size-medium wp-image-28727" alt="NBFC Automation" /></noscript></div>
+		</a>
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://www.rpatech.ai/blogs/nbfc-automation-solutions/" >
+				NBFC Automation Solutions: ROI-Driven Use Cases			</a>
+		</h3>
+				</div>
+				</article>
+				<article class="elementor-post elementor-grid-item post-28654 post type-post status-publish format-standard has-post-thumbnail hentry category-blogs tag-agentic-automation tag-demystifying-agentic-automation tag-linkedin-live tag-uipath">
+				<a class="elementor-post__thumbnail__link" href="https://www.rpatech.ai/blogs/demsytifying-agentic-automation-linkedin-live-recap/" tabindex="-1" >
+			<div class="elementor-post__thumbnail"><img width="300" height="240" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20240'%3E%3C/svg%3E" class="attachment-medium size-medium wp-image-28661" alt="demystifying agentic automation linkedin live recap 1" data-lazy-src="https://rpatech.b-cdn.net/wp-content/uploads/2025/12/demystifying-agentic-automation-linkedin-live-recap-1-300x240.png" /><noscript><img loading="lazy" width="300" height="240" src="https://rpatech.b-cdn.net/wp-content/uploads/2025/12/demystifying-agentic-automation-linkedin-live-recap-1-300x240.png" class="attachment-medium size-medium wp-image-28661" alt="demystifying agentic automation linkedin live recap 1" /></noscript></div>
+		</a>
+				<div class="elementor-post__text">
+				<h3 class="elementor-post__title">
+			<a href="https://www.rpatech.ai/blogs/demsytifying-agentic-automation-linkedin-live-recap/" >
+				Demystifying Agentic Automation: Key Takeaways from Our LinkedIn Live with UiPath			</a>
+		</h3>
+				</div>
+				</article>
+				</div>
+		
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+				<div data-elementor-type="footer" data-elementor-id="136" class="elementor elementor-136 elementor-location-footer" data-elementor-post-type="elementor_library">
+					<section class="elementor-section elementor-top-section elementor-element elementor-element-8ee75f5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="8ee75f5" data-element_type="section" id="subscribe">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3e6cef6" data-id="3e6cef6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2f0fb90 elementor-widget elementor-widget-spacer" data-id="2f0fb90" data-element_type="widget" data-widget_type="spacer.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-spacer">
+			<div class="elementor-spacer-inner"></div>
+		</div>
+				</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-fb20f3f elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="fb20f3f" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-f17818c" data-id="f17818c" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-da1a2be elementor-widget elementor-widget-text-editor" data-id="da1a2be" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><strong><span class="ui-provider a b c d e f g h i j k l m n o p q r s t u v w x y z ab ac ae af ag ah ai aj ak" dir="ltr">Subscribe to our email newsletter to get weekly updates on AI, Process Automation, Workflow Automation, and Gen AI. Stay informed and ahead with the latest trends and insights!</span></strong></p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-b97eac9" data-id="b97eac9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-f4a323a elementor-widget elementor-widget-html" data-id="f4a323a" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+			
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: flex-start; /* Aligns the button to the left */
+        }
+
+        .custom-button {
+            background-color: #005786;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .custom-button:hover,
+        .custom-button:active,
+        .custom-button:focus {
+            background-color: #005786; /* Keeps the background color the same on hover, click, and focus */
+            color: white; /* Keeps the text color the same on hover, click, and focus */
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 450px) {
+            .button-container {
+                justify-content: center; /* Centers the button on mobile devices */
+            }
+        }
+
+        /* Popup container - can be anything you want */
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 100px;
+        }
+
+        /* Popup content */
+        .popup-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 450px; /* Default width for PCs and tablets */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2); /* Optional: Add shadow for better appearance */
+            border-radius: 5px; /* Add border radius */
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 500px) {
+            .popup-content {
+                width: 80%; /* Set width to 90% for mobile devices */
+            }
+        }
+
+        /* Header and close button container */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height:25px;
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background-color: gray;
+            margin: 10px 0;
+        }
+    </style>
+
+<body data-rsssl=1>
+    <div class="button-container">
+        <button class="custom-button" onclick="openPopup()">Subscribe</button>
+    </div>
+
+    <!-- The Popup -->
+    <div id="popup" class="popup">
+        <!-- Popup content -->
+        <div class="popup-content">
+            <div class="header-container">
+                <h2>Subscribe</h2>
+                <span class="close" onclick="closePopup()">&times;</span>
+            </div>
+            <div class="divider"></div>
+            <div><script type="rocketlazyloadscript" charset="utf-8" data-rocket-type="text/javascript" data-rocket-src="//js.hsforms.net/forms/embed/v2.js"></script>
+                    <script type="rocketlazyloadscript">
+                      hbspt.forms.create({
+                        region: "na1",
+                        portalId: "5375605",
+                        formId: "fc518900-36e5-4fbe-8c02-50cafa2f7f69"
+                      });
+                    </script>
+</div>
+        </div>
+    </div>
+
+    <script type="rocketlazyloadscript">
+        // Function to open the popup
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        // Close the popup if the user clicks anywhere outside of it
+        window.onclick = function(event) {
+            var popup = document.getElementById("popup");
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
+    </script>
+<script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+
+		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-9754779 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="9754779" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;gradient&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4a2029f" data-id="4a2029f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<section class="elementor-section elementor-inner-section elementor-element elementor-element-6f311b6 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="6f311b6" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-7aff18b" data-id="7aff18b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-84e10c4 elementor-widget elementor-widget-heading" data-id="84e10c4" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">About us</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-41715e3 elementor-widget elementor-widget-text-editor" data-id="41715e3" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p>RPATech is one of the leading Robotic Process Automation and Intelligent Automation services providers. Already rated among the best automation leaders by industry analysts, RPATech is committed to providing exceptional value to its customers with its key focus on process excellence and innovation.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-dc09719" data-id="dc09719" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-2f9e777 elementor-widget elementor-widget-heading" data-id="2f9e777" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Important Links
+</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d07274d elementor-widget elementor-widget-text-editor" data-id="d07274d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><a style="color: #005786;" href="https://www.rpatech.ai/rpa-solutions-services/"><span style="font-weight: 400;">Services &amp; Solutions</span></a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/rpa-support-maintenance/"><span style="font-weight: 400;">Support &amp; Maintenance</span></a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/rpa-ai-implementation/">RPA &amp; AI Implementation</a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/automation-ai-coe-consulting/">CoE Consulting</a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/extended-workbench-service/">Extended Workbench</a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/rpa-solutions-services/#industries">Industries</a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/faqs/">FAQ’s</a></p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-5086c55" data-id="5086c55" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-c78b884 elementor-widget elementor-widget-heading" data-id="c78b884" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Quick Links
+</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-faf7e61 elementor-widget elementor-widget-text-editor" data-id="faf7e61" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><a style="color: #005786;" href="https://www.rpatech.ai/about-us/" target="_blank" rel="noopener">About Us</a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/blogs/" target="_blank" rel="noopener">Blog</a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/case-studies/" target="_blank" rel="noopener">Case Studies</a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/news/">News</a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/blogs/how-d3o-framework-by-rpa-critical-for-future-ready-business-operations/" target="_blank" rel="noopener">D3O<sup>TM </sup></a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/privacy-policy/">Privacy Policy</a></p><p><a style="color: #005786;" href="https://www.rpatech.ai/about-us/#contact">Contact Us</a></p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-e8f0404" data-id="e8f0404" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-77045f5 elementor-widget elementor-widget-heading" data-id="77045f5" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Get In Touch
+</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-f411809 elementor-widget elementor-widget-heading" data-id="f411809" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">India | Canada</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-368adc8 elementor-widget elementor-widget-heading" data-id="368adc8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default"><a href="mailto:hello@rpatech.ai">hello@rpatech.ai</a></p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-6eee962 elementor-widget elementor-widget-heading" data-id="6eee962" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default"><a href="tel:+918010369369">+91-8010-369-369</a></p>		</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-63d832d elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="63d832d" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-5c8a4be" data-id="5c8a4be" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-0c91613 elementor-widget__width-inherit elementor-widget elementor-widget-heading" data-id="0c91613" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Copyright RPATech @2024</h2>		</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9fe324f" data-id="9fe324f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-624bed6 elementor-icon-list--layout-inline elementor-align-right elementor-mobile-align-left elementor-widget__width-inherit elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="624bed6" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+					<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://www.linkedin.com/company/rpatech/" target="_blank">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-linkedin-in"></i>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://www.facebook.com/RPATech.in" target="_blank">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-facebook-f"></i>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://www.instagram.com/rpatech_ai/" target="_blank">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-instagram"></i>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://twitter.com/RPATech_In" target="_blank">
+
+												<span class="elementor-icon-list-icon">
+							<i aria-hidden="true" class="fab fa-twitter"></i>						</span>
+										<span class="elementor-icon-list-text"></span>
+											</a>
+									</li>
+						</ul>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<div  id="bravepop_element_tooltip"></div><div  id="bravepop_element_lightbox"><div  id="bravepop_element_lightbox_close" onclick="brave_lightbox_close()"></div><div  id="bravepop_element_lightbox_content"></div></div>		<div data-elementor-type="popup" data-elementor-id="25967" class="elementor elementor-25967 elementor-location-popup" data-elementor-settings="{&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:{&quot;click&quot;:&quot;yes&quot;,&quot;click_times&quot;:100000},&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+					<section  class="elementor-section elementor-top-section elementor-element elementor-element-030609b elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="030609b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5613e44" data-id="5613e44" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-270951e elementor-widget elementor-widget-heading" data-id="270951e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Subscribe</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-3dc0364 elementor-widget elementor-widget-shortcode" data-id="3dc0364" data-element_type="widget" data-widget_type="shortcode.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-shortcode"><script type="rocketlazyloadscript" charset="utf-8" data-rocket-type="text/javascript" data-rocket-src="//js.hsforms.net/forms/embed/v2.js"></script>
+                    <script type="rocketlazyloadscript">
+                      hbspt.forms.create({
+                        region: "na1",
+                        portalId: "5375605",
+                        formId: "fc518900-36e5-4fbe-8c02-50cafa2f7f69"
+                      });
+                    </script></div>
+				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+					<script type="rocketlazyloadscript" data-rocket-type='text/javascript'>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<script id="rocket_lazyload_css-js-extra">
+var rocket_lazyload_css_data = {"threshold":"300"};
+//# sourceURL=rocket_lazyload_css-js-extra
+</script>
+<script id="rocket_lazyload_css-js-after">
+!function o(n,c,a){function u(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(s)return s(t,!0);throw(e=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",e}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return u(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var s="function"==typeof require&&require,e=0;e<a.length;e++)u(a[e]);return u}({1:[function(e,t,r){"use strict";{const c="undefined"==typeof rocket_pairs?[]:rocket_pairs,a=(("undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs).map(t=>{var e=t.selector;document.querySelectorAll(e).forEach(e=>{e.setAttribute("data-rocket-lazy-bg-"+t.hash,"excluded")})}),document.querySelector("#wpr-lazyload-bg-container"));var o=rocket_lazyload_css_data.threshold||300;const u=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&c.filter(e=>t.target.matches(e.selector)).map(t=>{var e;t&&((e=document.createElement("style")).textContent=t.style,a.insertAdjacentElement("afterend",e),t.elements.forEach(e=>{u.unobserve(e),e.setAttribute("data-rocket-lazy-bg-"+t.hash,"loaded")}))})})},{rootMargin:o+"px"});function n(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&c.forEach(t=>{try{document.querySelectorAll(t.selector).forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-"+t.hash)&&(u.observe(e),(t.elements||=[]).push(e))})}catch(e){console.error(e)}})}n(),function(){const r=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType)return(t=new r(t)).observe(e,{attributes:!0,childList:!0,subtree:!0}),t}}()(document.querySelector("body"),n)}},{}]},{},[1]);
+//# sourceURL=rocket_lazyload_css-js-after
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/themes/hello-elementor/assets/js/hello-frontend.min.js?ver=3.0.0" id="hello-theme-frontend-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" id="heateor_sss_sharing_js-js-before">
+function heateorSssLoadEvent(e) {var t=window.onload;if (typeof window.onload!="function") {window.onload=e}else{window.onload=function() {t();e()}}};	var heateorSssSharingAjaxUrl = 'https://www.rpatech.ai/wp-admin/admin-ajax.php', heateorSssCloseIconPath = 'https://www.rpatech.ai/wp-content/plugins/sassy-social-share/public/../images/close.png', heateorSssPluginIconPath = 'https://www.rpatech.ai/wp-content/plugins/sassy-social-share/public/../images/logo.png', heateorSssHorizontalSharingCountEnable = 0, heateorSssVerticalSharingCountEnable = 0, heateorSssSharingOffset = -10; var heateorSssMobileStickySharingEnabled = 0;var heateorSssCopyLinkMessage = "Link copied.";var heateorSssUrlCountFetched = [], heateorSssSharesText = 'Shares', heateorSssShareText = 'Share';function heateorSssPopup(e) {window.open(e,"popUpWindow","height=400,width=600,left=400,top=100,resizable,scrollbars,toolbar=0,personalbar=0,menubar=no,location=no,directories=no,status")}
+//# sourceURL=heateor_sss_sharing_js-js-before
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://rpatech.b-cdn.net/wp-content/cache/min/1/wp-content/plugins/sassy-social-share/public/js/sassy-social-share-public.js?ver=1768807764" id="heateor_sss_sharing_js-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-wpforms-3b23b71ea60c39fa1552.js" id="googlesitekit-events-provider-wpforms-js" defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.23.3" id="e-sticky-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-includes/js/imagesloaded.min.js?ver=5.0.0" id="imagesloaded-js" data-rocket-defer defer></script>
+<script id="bravepop_front_js-js-extra">
+var bravepop_global = {"loggedin":"false","isadmin":"false","referer":"","security":"96621e7344","goalSecurity":"95183442d4","couponSecurity":"49b4b735ec","cartURL":"","checkoutURL":"","ajaxURL":"https://www.rpatech.ai/wp-admin/admin-ajax.php","field_required":"Required","no_html_allowed":"No Html Allowed","invalid_number":"Invalid Number","invalid_email":"Invalid Email","invalid_url":"Invalid URL","invalid_date":"Invalid Date","fname_required":"First Name is Required.","lname_required":"Last Name is Required.","username_required":"Username is Required.","email_required":"Email is Required.","email_invalid":"Invalid Email addresss.","pass_required":"Password is Required.","pass_short":"Password is too Short.","yes":"Yes","no":"No","login_error":"Something Went Wrong. Please contact the Site administrator.","pass_reset_success":"Please check your Email for the Password reset link.","customFonts":[],"disableGoogleFonts":"false"};
+//# sourceURL=bravepop_front_js-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://rpatech.b-cdn.net/wp-content/cache/min/1/wp-content/plugins/brave-popup-builder/assets/frontend/brave.js?ver=1768807765" id="bravepop_front_js-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.23.3" id="elementor-pro-webpack-runtime-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.23.4" id="elementor-webpack-runtime-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.23.4" id="elementor-frontend-modules-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/www.rpatech.ai\/wp-admin\/admin-ajax.php","nonce":"d9e5eddb9d","urls":{"assets":"https:\/\/www.rpatech.ai\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.rpatech.ai\/wp-json\/"},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.rpatech.ai\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.23.3" id="elementor-pro-frontend-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselWrapperAriaLabel":"Carousel | Horizontal scrolling: Arrow Left & Right","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.23.4","is_static":false,"experimentalFeatures":{"e_optimized_css_loading":true,"additional_custom_breakpoints":true,"container_grid":true,"e_swiper_latest":true,"e_nested_atomic_repeaters":true,"e_onboarding":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"home_screen":true,"ai-layout":true,"landing-pages":true,"e_lazyload":true,"display-conditions":true,"form-submissions":true,"taxonomy-filter":true},"urls":{"assets":"https:\/\/www.rpatech.ai\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.rpatech.ai\/wp-admin\/admin-ajax.php"},"nonces":{"floatingButtonsClickTracking":"434626f6bc"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":27945,"title":"Black%20Box%20AI%20Explained%3A%20Understanding%20AI%E2%80%99s%20Hidden%20Mechanisms","excerpt":"","featuredImage":"https:\/\/www.rpatech.ai\/wp-content\/uploads\/2025\/08\/Black-Box-AI.png"}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.23.4" id="elementor-frontend-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://rpatech.b-cdn.net/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.23.3" id="pro-elements-handlers-js" data-rocket-defer defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://rpatech.b-cdn.net/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script><script>function lazyLoadThumb(e,alt,l){var t='<img loading="lazy" data-lazy-src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"><noscript><img loading="lazy" src="https://i.ytimg.com/vi/ID/hqdefault.jpg" alt="" width="480" height="360"></noscript>',a='<button class="play" aria-label="play Youtube video"></button>';if(l){t=t.replace('data-lazy-','');t=t.replace('loading="lazy"','');t=t.replace(/<noscript>.*?<\/noscript>/g,'');}t=t.replace('alt=""','alt="'+alt+'"');return t.replace("ID",e)+a}function lazyLoadYoutubeIframe(){var e=document.createElement("iframe"),t="ID?autoplay=1";t+=0===this.parentNode.dataset.query.length?"":"&"+this.parentNode.dataset.query;e.setAttribute("src",t.replace("ID",this.parentNode.dataset.src)),e.setAttribute("frameborder","0"),e.setAttribute("allowfullscreen","1"),e.setAttribute("allow","accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"),this.parentNode.parentNode.replaceChild(e,this.parentNode)}document.addEventListener("DOMContentLoaded",function(){var exclusions=[];var e,t,p,u,l,a=document.getElementsByClassName("rll-youtube-player");for(t=0;t<a.length;t++)(e=document.createElement("div")),(u='https://i.ytimg.com/vi/ID/hqdefault.jpg'),(u=u.replace('ID',a[t].dataset.id)),(l=exclusions.some(exclusion=>u.includes(exclusion))),e.setAttribute("data-id",a[t].dataset.id),e.setAttribute("data-query",a[t].dataset.query),e.setAttribute("data-src",a[t].dataset.src),(e.innerHTML=lazyLoadThumb(a[t].dataset.id,a[t].dataset.alt,l)),a[t].appendChild(e),(p=e.querySelector(".play")),(p.onclick=lazyLoadYoutubeIframe)});</script>
+</body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1770246993 -->
