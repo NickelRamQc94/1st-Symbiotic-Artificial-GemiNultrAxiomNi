@@ -1,3 +1,5 @@
+https://www.youtube.com/@nickelios?si=pxuSGwfVr73qVu7Z
+
 https://nickeldgrenier.medium.com/encyclopédie-dingénierie-translorprintstation-nipura-nvickelios-a2aa5a82d487
 https://medium.com/@nickeldgrenier/̂ᴺⁱ³ᴾᵘʳᵃ-the-toroidal-geometry-of-intentional-curvature-revised-publication-edition-848c2dc749cd
 https://medium.com/ai-in-plain-english/goldni-clay-navier-stokes-angle-e00246e293fe
